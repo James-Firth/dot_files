@@ -35,7 +35,7 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 #firefox https://github.com/horst3180/arc-firefox-theme/releases
 
 # Copy files to their appropriate locations.
-tar -xzf icon_themes.tar.gz -C /usr/share/icons/
+sudo tar -xzf icon_themes.tar.gz -C /usr/share/icons/
 mv .fonts/ ~/
 mv .i3/ ~/
 mv .ssh/ ~/
