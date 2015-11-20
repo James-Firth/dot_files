@@ -14,6 +14,7 @@ sudo apt-get update;
 
 # Install apps
 sudo apt-get install -y git git-gui gitk vim terminator zsh i3 tmux lxappearance arc-theme rofi compton i3blocks thunar gnome-icon-theme-full;
+sudo apt-get install -y scrot imagemagick i3lock;
 # Thunar and gnome-icon-theme-full are only requied if nautilus isn't working.
 
 #Install icon theme
