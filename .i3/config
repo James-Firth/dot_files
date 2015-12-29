@@ -219,4 +219,4 @@ bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opaci
 exec firefox
 exec compton -f
 exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
-
+exec --no-startup-id nm-applet
