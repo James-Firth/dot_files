@@ -95,7 +95,7 @@ bindsym $mod+a focus parent
 #####################
 #     VARIABLES     #
 #####################
-set $workspace1 "1: Web "
+set $workspace1 "1: Web "
 set $workspace2 "2: Atom"
 set $workspace3 "3: Terminal"
 set $workspace4 "4: Chrome"
@@ -182,8 +182,8 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # finds out, if available)
 # bar
 bar {
-	status_command i3blocks -c ~/.i3/i3blocks.conf
-	#status_command i3status
+	#status_command i3blocks -c ~/.i3/i3blocks.conf
+	status_command i3status
 	colors {
 		background $bg-color
 	        separator #757575
