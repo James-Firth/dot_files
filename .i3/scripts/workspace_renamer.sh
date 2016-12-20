@@ -4,7 +4,7 @@ set -e
 #Thanks to this guy: https://github.com/deiwin/i3-dotfiles/blob/docs/.i3/rename_workspace.sh
 
 num=`i3-msg -t get_workspaces | jq 'map(select(.focused == true))[0].num'`
-i3-input -F "rename workspace to \"$num: %s\"" -P "New name $num: "
+i3-input -F "rename workspace to \"$num %s\"" -P "New name: $num "
 
 name=`i3-msg -t get_workspaces | jq 'map(select(.focused == true))[0].name'`
 # If empty name was set
