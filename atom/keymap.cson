@@ -23,10 +23,13 @@
 # This file uses CoffeeScript Object Notation (CSON).
 # If you are unfamiliar with CSON, you can read more about it here:
 # https://github.com/bevry/cson#what-is-cson
+
 'body':
-    'ctrl-tab ^ctrl': 'unset!'
-    'ctrl-tab': 'pane:show-next-item'
-    'ctrl-shift-tab ^ctrl': 'unset!'
-    'ctrl-shift-tab': 'pane:show-previous-item'
-'.platform-win32 .editor, .platform-linux .editor':
-  'ctrl-shift-L': 'editor:split-selections-into-lines'
+  'ctrl-tab': 'pane:show-next-item'
+  'ctrl-tab ^ctrl': 'unset!'
+  'ctrl-shift-tab': 'pane:show-previous-item'
+  'ctrl-shift-tab ^ctrl': 'unset!'
+  "ctrl-'": 'tree-view:toggle'
+'atom-text-editor:not(.mini)':
+  'alt->': 'linter-ui-default:next-error'
+  'alt-<': 'linter-ui-default:previous-error'
