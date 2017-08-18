@@ -1,9 +1,13 @@
 #!/bin/bash
+set -x
 set -e
 
 #Thanks to this guy: https://github.com/deiwin/i3-dotfiles/blob/docs/.i3/rename_workspace.sh
 
-num=`i3-msg -t get_workspaces | jq 'map(select(.focused == true))[0].num'`
+workspace=`i3-msg -t get_workspaces | jq 'map(select(.focused == true))[0]'`
+workspace_num=$(echo $workspace | jq '.num')
+workspace_name=$(echo $workspace | jq '.name')
+echo $workspace_num
 i3-input -F "rename workspace to \"$num %s\"" -P "New name: $num "
 
 name=`i3-msg -t get_workspaces | jq 'map(select(.focused == true))[0].name'`
