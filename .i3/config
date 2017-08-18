@@ -35,12 +35,15 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
+
+#### Replaced with rofi ####
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run -p "Run:" -nb '#2f343f' -nf '#676E7D' -sf '#f3f4f5'  #replaced with rofi
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#### Replace with rofi ####
 
 # change focus
 bindsym $mod+j focus left
@@ -103,6 +106,12 @@ set $workspace9 "9 "
 set $workspace8 "8 "
 set $workspace10 "10 Slack "
 
+# More workspaces!
+set $workspacef1 "F1"
+set $workspacef2 "F2"
+set $workspacef3 "F3"
+set $workspacef4 "F4"
+
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
@@ -114,6 +123,12 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
+
+# Enables a few F-key workspaces
+bindsym $mod+F1 workspace $workspacef1
+bindsym $mod+F2 workspace $workspacef2
+bindsym $mod+F3 workspace $workspacef3
+bindsym $mod+F4 workspace $workspacef4
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
@@ -127,11 +142,18 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
+# move focused container to workspace (F keys workspaces)
+bindsym $mod+Shift+F1 move container to workspace $workspacef1
+bindsym $mod+Shift+F2 move container to workspace $workspacef2
+bindsym $mod+Shift+F3 move container to workspace $workspacef3
+bindsym $mod+Shift+F4 move container to workspace $workspacef4
+
 # move focused workspace to other display
 bindsym $mod+Shift+KP_4 move workspace to output left
 bindsym $mod+Shift+KP_6 move workspace to output right
 
 # rename current workspace
+#TODO fix this with negative numbers
 bindsym $mod+n exec ~/.i3/scripts/workspace_renamer.sh
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -166,16 +188,26 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $bg-color            #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
-set $indicator		 #00ffff
+# Norima colours
+set $focused-bg-color    #6F94AA
+set $bg-color            #595959
+set $inactive-bg-color   #595959
+set $text-color          #FFFFFF
+set $inactive-text-color #FFFFFF
+set $urgent-bg-color     #E34646
+set $indicator           #6F94AA
+
+# Current colours
+# set $bg-color            #2f343f
+# set $inactive-bg-color   #2f343f
+# set $text-color          #f3f4f5
+# set $inactive-text-color #676E7D
+# set $urgent-bg-color     #E53935
+# set $indicator           #00ff00
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          $indicator
+client.focused          $bg-color   $bg-color  $text-color          $indicator
 client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color  $indicator
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  $indicator
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $indicator
@@ -188,9 +220,9 @@ bar {
 	#status_command i3status
 	colors {
 		background $bg-color
-	        separator #757575
+	        separator #6F94AA
 		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
+		focused_workspace  $focused-bg-color  $focused-bg-color   $text-color
 		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
 		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 	}
@@ -224,6 +256,9 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% &&
 
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
 
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # ROFI binding
 bindsym $mod+d exec rofi -show run -opacity "50" -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -fullscreen -bw 0 -padding 300 -font "System San Francisco Display 18"
@@ -238,14 +273,18 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 
 
 #Auto-start
-exec firefox
-#exec slack
+#exec firefox
+exec slack
 exec compton -f
 
-#single stretched wallpaper
+# restore the saved wallpapers for one on each monitor
+#exec nitrogen --restore
+
+# single stretched wallpaper
 #exec_always feh --no-xinerama --bg-center ~/Pictures/wallpaper.jpg #multimonitor
 
 #different wallpaper on each
+exec /home/james/.screenlayout/triple_layout.sh
 exec --no-startup-id nitrogen --restore
 
 exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
@@ -255,3 +294,16 @@ exec --no-startup-id nm-applet
 
 #Fixing nautilus
 exec gsettings set org.gnome.desktop.background show-desktop-icons false
+
+#Fixing borders/titlebars
+new_window pixel
+new_float normal
+hide_edge_borders vertical
+
+#bindsym Mod1+Shift+1 exec --no-startup-id setxkbmap us -option caps:semicolon && pkill -RTMIN+12 i3blocks
+
+bindsym Mod1+Shift+1 exec --no-startup-id setxkbmap us && pkill -RTMIN+12 i3blocks
+bindsym Mod1+Shift+2 exec --no-startup-id setxkbmap us -variant colemak && pkill -RTMIN+12 i3blocks
+
+bindsym --release Mod1+grave exec scrot 
+bindsym --release Mod1+Shift+grave exec scrot -S 
