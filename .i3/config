@@ -241,16 +241,16 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 bindsym $mod+Print mode "$mode_system"
-bindsym $mod+Shift+KP_1 exec ~/.i3/scripts/screenlayout/at_desk.sh
-bindsym $mod+Shift+KP_2 exec ~/.i3/scripts/screenlayout/outandabout.sh
+bindsym $mod+Shift+KP_1 exec ~/.i3/scripts/screenlayout/laptop_layout.sh
+bindsym $mod+Shift+KP_2 exec ~/.i3/scripts/screenlayout/triplets.sh
 
 bindsym $mod+shift+x exec ~/.i3/scripts/screen_locker.sh
 
-# Pulse Audio controls (Not used anymore but kept for reference on other machines)
+# Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% && pactl set-sink-mute 1 false && killall -SIGUSR1 i3status #increase sound volume and unmute
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% && pactl set-sink-mute 1 false && killall -SIGUSR1 i3status #decrease sound volume
 
-# Amixer Audio controls
+# Amixer Audio controls (not used, just for reference)
 #bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%- #decrease sound volume
 #bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+ #increase sound volume
 
@@ -276,34 +276,29 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 #exec firefox
 exec slack
 exec compton -f
+exec /home/james/.screenlayout/triple_layout.sh #different wallpaper on each
+exec --no-startup-id nitrogen --restore # restore the saved wallpapers for one on each monitor
 
-# restore the saved wallpapers for one on each monitor
-#exec nitrogen --restore
 
 # single stretched wallpaper
 #exec_always feh --no-xinerama --bg-center ~/Pictures/wallpaper.jpg #multimonitor
 
-#different wallpaper on each
-exec /home/james/.screenlayout/triple_layout.sh
-exec --no-startup-id nitrogen --restore
 
+# sudo GUI and network manage applet fixes.
 exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
 
 #assign[class="CLASSNAME"] $workspaceX #get class name via xprop + click
 
-#Fixing nautilus
+# Fixing nautilus. Though I'm using nemo now
 exec gsettings set org.gnome.desktop.background show-desktop-icons false
 
-#Fixing borders/titlebars
+# Makes borders/titlebars very tiny
 new_window pixel
 new_float normal
 hide_edge_borders vertical
 
+# For switching between QWERTY and COLEMAK. Also switched capslock for semicolon.
 #bindsym Mod1+Shift+1 exec --no-startup-id setxkbmap us -option caps:semicolon && pkill -RTMIN+12 i3blocks
-
-bindsym Mod1+Shift+1 exec --no-startup-id setxkbmap us && pkill -RTMIN+12 i3blocks
-bindsym Mod1+Shift+2 exec --no-startup-id setxkbmap us -variant colemak && pkill -RTMIN+12 i3blocks
-
-bindsym --release Mod1+grave exec scrot 
-bindsym --release Mod1+Shift+grave exec scrot -S 
+#bindsym Mod1+Shift+1 exec --no-startup-id setxkbmap us && pkill -RTMIN+12 i3blocks
+#bindsym Mod1+Shift+2 exec --no-startup-id setxkbmap us -variant colemak && pkill -RTMIN+12 i3blocks

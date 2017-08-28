@@ -19,4 +19,6 @@ convert "$tmpbg" -swirl 90 "$tmpbg"
 # Old style
 convert "$tmpbg" "$icon" -gravity center -composite -matte "$tmpbg"
 
-i3lock  -i "$tmpbg" -p win -f
+pkill -u "$USER" -USR1 dunst
+i3lock -n -i "$tmpbg" -p win -f --ignore-empty-password
+pkill -u "$USER" -USR2 dunst
