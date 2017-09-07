@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="spaceship"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -45,7 +45,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nvm zsh-nvm emoji)
+plugins=(git nvm aws emoji zsh-syntax-highlighting)
 
 # User configuration
 
@@ -53,8 +53,9 @@ plugins=(git nvm zsh-nvm emoji)
 
 source $ZSH/oh-my-zsh.sh
 
-fpath=(~/.zsh/completions $fpath) 
-autoload -U compinit && compinit
+fpath=(~/.zsh/completions $fpath)
+fpath=(~/.zsh/completion $fpath) #Added for docker
+autoload -Uz compinit && compinit #added -z for Docker
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -84,13 +85,53 @@ export NODE_PATH=$NODEPATH:/usr/local/lib/node_modules
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #General Aliases for my linux setup.
-
-#Work specific aliases
-alias debug='sudo screen /dev/ttyUSB0 115200'
-
 alias gcr='git checkout -t'
 alias sshi="cat ~/.ssh/config"
 alias scanet="sudo nmap -sP 192.168.0.100-254"
+alias cless="less -R"
+alias clear3="clear; clear; clear;"
+alias rmnm=find -type d -name "node_modules" -exec rm -rf {} \;
+
+# Movement aliases
+alias projects="cd /home/james/projects"
+alias work="cd /home/james/projects/work"
+alias personal="cd /home/james/projects/personal"
+
+# custom functions used for fancier aliases
+safe_sudo() {
+ cmd="${@: 1}"
+ if [ "" = "$cmd" ]; then
+  echo "Missing parameters!";
+  return 1
+ fi
+
+ sudo ${@: 1};
+ sudo -k;
+ echo "Sudo permissions removed from this terminal."
+}
+alias ssudo=safe_sudo
+
+aws_check(){
+ cmd="${@: 1}"
+ openssl pkcs8 -in "$cmd" -nocrypt -topk8 -outform DER | openssl sha1 -c
+}
+alias awsfingerprint=aws_check
+
+
+node_add_and_delete_dependency() {
+ cmd="${@: 1}"
+ if [ "" = "$cmd" ]; then
+  echo "Missing parameters!";
+  return 1
+ fi
+
+ npm install --save ${@: 1} && rm -r node_modules
+ echo "Added dependencies: ${@: 1} and removed node_modules folder"
+}
+alias nadd=node_add_and_delete_dependency
+
+
+# Path, ENV, etc. setup. Mostly 3rd party.
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 autoload -U add-zsh-hook
@@ -100,5 +141,15 @@ load-nvmrc() {
   fi
 }
 add-zsh-hook chpwd load-nvmrc
+
 export NODE_ENV=development
 export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:./node_modules/.bin:/opt:$PATH"
+source ~/.config/up/up.sh
+
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /home/james/projects/work/medic/medic-server/lambda/medic-demo-lambda/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/james/projects/work/medic/medic-server/lambda/medic-demo-lambda/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /home/james/projects/work/medic/medic-server/lambda/medic-demo-lambda/node_modules/tabtab/.completions/sls.zsh ]] && . /home/james/projects/work/medic/medic-server/lambda/medic-demo-lambda/node_modules/tabtab/.completions/sls.zsh
