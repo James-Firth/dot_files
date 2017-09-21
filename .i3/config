@@ -78,8 +78,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+# Disabling two as I never really use them
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -215,6 +216,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # finds out, if available)
 # bar
 bar {
+	tray_output primary
 	status_command i3blocks -c ~/.i3/i3blocks.conf
 	#status_command i3status
 	colors {
@@ -301,3 +303,10 @@ hide_edge_borders vertical
 #bindsym Mod1+Shift+1 exec --no-startup-id setxkbmap us -option caps:semicolon && pkill -RTMIN+12 i3blocks
 #bindsym Mod1+Shift+1 exec --no-startup-id setxkbmap us && pkill -RTMIN+12 i3blocks
 #bindsym Mod1+Shift+2 exec --no-startup-id setxkbmap us -variant colemak && pkill -RTMIN+12 i3blocks
+
+# Interesting idea to make a floating youtube window. No Firefox support only chrome
+bindsym $mod+y fullscreen disable, floating enable, resize set 400 300, sticky enable, move window to position 3440 750, move scratchpad, scratchpad show
+
+#scratchpad keybinds
+bindsym $mod+s scratchpad show
+bindsym $mod+m move scratchpad
