@@ -1,0 +1,36 @@
+{
+    "editor.rulers": [
+        100
+    ],
+    "workbench.colorTheme": "Nord",
+    "workbench.iconTheme": "vscode-great-icons",
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/build.js": true,
+        "**/*.js.map": true
+    },
+    "todohighlight.exclude": "{**/node_modules/**,**/bower_components/**,**/dist/**,**/build/**,**/.vscode/**,**/_output/**,**/*.min.*,**/*.map}",
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    },
+    "editor.renderWhitespace": "boundary",
+    "window.openFoldersInNewWindow": "off",
+    "window.openFilesInNewWindow": "off",
+    "workbench.sideBar.location": "left",
+    "workbench.activityBar.visible": true,
+    "editor.formatOnSave": true,
+    "eslint.autoFixOnSave": true,
+    "window.menuBarVisibility": "toggle",
+    "todohighlight.isEnable": true,
+    "files.insertFinalNewline": true,
+    "window.zoomLevel": 0,
+    "workbench.panel.location": "right"
+}

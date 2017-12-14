@@ -1,5 +1,7 @@
 # dot_files
 
+![xkcd comic about computer only being usable by the owner](https://imgs.xkcd.com/comics/borrow_your_laptop.png)
+
 I created these setup files after following [this great video tutorial on i3](https://www.youtube.com/watch?v=j1I63wGcvU4&list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf&index=1)
 
 
@@ -18,4 +20,3 @@ I also kept copies/snapshots of the themes/fonts/icons in this repo as a back up
 * [Arc Firefox Theme](https://github.com/horst3180/arc-firefox-theme)
 * [Arc GTK Theme](https://github.com/horst3180/Arc-theme)
 * [Fantastic i3lock setup](https://www.reddit.com/r/unixporn/comments/3358vu/i3lock_unixpornworthy_lock_screen) (reddit thread)
-

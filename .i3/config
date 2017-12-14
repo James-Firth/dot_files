@@ -37,7 +37,7 @@ bindsym $mod+Shift+q kill
 
 #### Replaced with rofi ####
 # start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run -p "Run:" -nb '#2f343f' -nf '#676E7D' -sf '#f3f4f5'  #replaced with rofi
+# bindsym $mod+d exec dmenu_run -p "Run:" -nb '#2f343f' -nf '#676E7D' -sf '#f3f4f5'  #replaced with rofi
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -50,7 +50,7 @@ bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
-# alternatively, you can use the cursor keys:
+# Cursor keys for moving workspaces
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -99,7 +99,7 @@ bindsym $mod+a focus parent
 #     VARIABLES     #
 #####################
 set $workspace1 "1 "
-set $workspace2 "2 Atom "
+set $workspace2 "2 Code "
 set $workspace3 "3 Terminal "
 set $workspace4 "4 misc"
 set $workspace9 "9 "
@@ -149,8 +149,12 @@ bindsym $mod+Shift+F3 move container to workspace $workspacef3
 bindsym $mod+Shift+F4 move container to workspace $workspacef4
 
 # move focused workspace to other display
+# For full/tenkeyed keyboards
 bindsym $mod+Shift+KP_4 move workspace to output left
 bindsym $mod+Shift+KP_6 move workspace to output right
+# For laptops/60% keyboards
+bindsym $mod+Shift+less move workspace to output left
+bindsym $mod+Shift+greater move workspace to output right
 
 # rename current workspace
 #TODO fix this with negative numbers
@@ -189,28 +193,49 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Norima colours
-set $focused-bg-color    #6F94AA
-set $bg-color            #595959
-set $inactive-bg-color   #595959
-set $text-color          #FFFFFF
-set $inactive-text-color #FFFFFF
-set $urgent-bg-color     #E34646
-set $indicator           #6F94AA
+#set $focused-bg-color    #6F94AA
+#set $bg-color            #595959
+#set $inactive-bg-color   #595959
+#set $text-color          #FFFFFF
+#set $inactive-text-color #FFFFFF
+#set $urgent-bg-color     #E34646
+#set $indicator           #6F94AA
 
-# Current colours
-# set $bg-color            #2f343f
-# set $inactive-bg-color   #2f343f
-# set $text-color          #f3f4f5
-# set $inactive-text-color #676E7D
-# set $urgent-bg-color     #E53935
-# set $indicator           #00ff00
+# Autumn Colours
+# set $text-color          #c0b18b
+# set $focused-text-color  #d17b49
+# set $inactive-text-color #c0b18b
+
+# set $bg-color            #4a3637
+# set $focused-bg-color    #647035
+# set $inactive-bg-color   #402e2e
+# set $urgent-bg-color     #d17b49
+
+# set $separator           #402e2e
+# set $indicator           #ac5d2f
+
+
+# Current colours - Winter
+set $text-color          #edeff2
+set $focused-text-color  #6673bf
+set $inactive-text-color #c8cacc
+
+set $bg-color            #95a7cc
+set $focused-bg-color    #ffffff
+set $inactive-bg-color   #95a7cc
+set $urgent-bg-color     #3ea290
+
+set $separator           #3d3d3d
+set $indicator           #3ea290
 
 # window colors
-#                       border              background         text                 indicator
-client.focused          $bg-color   $bg-color  $text-color          $indicator
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color  $indicator
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  $indicator
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $indicator
+#                       border              background          text                 indicator   child_border
+client.focused          $bg-color           $bg-color           $focused-text-color  $indicator  #ffffff
+client.unfocused        $inactive-bg-color  $inactive-bg-color  $inactive-text-color $indicator  #ffffff
+client.focused_inactive $inactive-bg-color  $inactive-bg-color  $inactive-text-color $indicator  #ffffff
+client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color          $indicator  #ffffff
+# This is for clients that don't take up the whole area
+client.background #402e2e
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -220,14 +245,17 @@ bar {
 	status_command i3blocks -c ~/.i3/i3blocks.conf
 	#status_command i3status
 	colors {
+    #Info found at i3 userguide section: 5.15. Colors
 		background $bg-color
-	        separator #6F94AA
+    separator $separator
 		#                  border             background         text
-		focused_workspace  $focused-bg-color  $focused-bg-color   $text-color
+		focused_workspace  $focused-bg-color  $focused-bg-color  $focused-text-color
 		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
 		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 	}
 }
+
+# Default stuff to show a menu
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id ~/.i3/scripts/screen_locker.sh, mode "default"
@@ -242,9 +270,15 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 bindsym $mod+Print mode "$mode_system"
+
+# For full sized keyboards
 bindsym $mod+Shift+KP_1 exec ~/.i3/scripts/screenlayout/laptop_layout.sh
 bindsym $mod+Shift+KP_2 exec ~/.i3/scripts/screenlayout/triplets.sh
+# For TKL and smaller keyboards
+bindsym $mod+Control+Alt+1 exec ~/.i3/scripts/screenlayout/laptop_layout.sh
+bindsym $mod+Control+Alt+2 exec ~/.i3/scripts/screenlayout/triplets.sh
 
+# Locks the screen and throws up a lock image.
 bindsym $mod+shift+x exec ~/.i3/scripts/screen_locker.sh
 
 # Pulse Audio controls
@@ -262,7 +296,9 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # ROFI binding
-bindsym $mod+d exec rofi -show run -opacity "50" -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -fullscreen -bw 0 -padding 300 -font "System San Francisco Display 18"
+# Not sure what the kb-row-tab flag does right nwo
+#bindsym $mod+d exec rofi -show run -opacity "50" -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -fullscreen -bw 0 -padding 300 -font "System San Francisco Display 18" -kb-row-select 'Tab' -kb-row-tab ''
+bindsym $mod+d exec rofi -show run -lines 10 -hide-scrollbar -separator-style none -line-padding 4 -bw 2 -font 'System San Francisco Display 18' -kb-row-select 'Tab' -kb-row-tab ''
 
 # old rofi binding. Keeping in case changes want to be made
 #bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -fullscreen -opacity "85" -bw 10 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
@@ -279,7 +315,7 @@ exec slack
 exec compton -f
 exec /home/james/.screenlayout/triple_layout.sh #different wallpaper on each
 exec --no-startup-id nitrogen --restore # restore the saved wallpapers for one on each monitor
-
+exec_always --no-startup-id setxkbmap us -option caps:esc
 
 # single stretched wallpaper
 #exec_always feh --no-xinerama --bg-center ~/Pictures/wallpaper.jpg #multimonitor
@@ -295,7 +331,7 @@ exec --no-startup-id nm-applet
 exec gsettings set org.gnome.desktop.background show-desktop-icons false
 
 # Makes borders/titlebars very tiny
-new_window pixel
+new_window none
 new_float normal
 hide_edge_borders vertical
 

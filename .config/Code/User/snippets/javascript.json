@@ -1,0 +1,57 @@
+{
+	/*
+	// Place your snippets for JavaScript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	"Print to console": {
+		"prefix": "log",
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	}
+*/
+	"console log standard": {
+		"prefix": "logs",
+		"body": "console.log(\"${1}\");",
+		"description": "JS Console log with double quotes as per linter"
+	},
+	"console error standard": {
+		"prefix": "errs",
+		"body": "console.error(\"${1}\");",
+		"description": "JS Console error with double quotes as per linter"
+	},
+	"console dir standard": {
+		"prefix": "dirs",
+		"body": "console.dir(\"${1}\");",
+		"description": "JS Console dir with double quotes as per linter"
+	},
+	"console warn standard": {
+		"prefix": "warns",
+		"body": "console.warn(\"${1}\");",
+		"description": "JS Console warn with double quotes as per linter"
+	},
+	"console log interpolated": {
+		"prefix": "logi",
+		"body": "console.log(`${1}`);",
+		"description": "JS Console log with backticks for interpolation"
+	},
+	"console error interpolated": {
+		"prefix": "erri",
+		"body": "console.error(`${1}`);",
+		"description": "JS Console error with backticks for interpolation"
+	},
+	"console dir interpolated": {
+		"prefix": "diri",
+		"body": "console.dir(\"`1}\"`",
+		"description": "JS Console dir with backticks for interpolation"
+	},
+	"console warn interpolated": {
+		"prefix": "warni",
+		"body": "console.warn(\"`1}\"`",
+		"description": "JS Console warn with backticks for interpolation"
+	},
+}
