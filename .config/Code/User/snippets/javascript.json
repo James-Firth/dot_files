@@ -36,22 +36,22 @@
 	},
 	"console log interpolated": {
 		"prefix": "logi",
-		"body": "console.log(`${1}`);",
+		"body": "console.log(`${${1}}`);",
 		"description": "JS Console log with backticks for interpolation"
 	},
 	"console error interpolated": {
 		"prefix": "erri",
-		"body": "console.error(`${1}`);",
+		"body": "console.error(`${${1}}`);",
 		"description": "JS Console error with backticks for interpolation"
 	},
 	"console dir interpolated": {
 		"prefix": "diri",
-		"body": "console.dir(\"`1}\"`",
+		"body": "console.dir(`${${1}}`",
 		"description": "JS Console dir with backticks for interpolation"
 	},
 	"console warn interpolated": {
 		"prefix": "warni",
-		"body": "console.warn(\"`1}\"`",
+		"body": "console.warn(`${${1}}`",
 		"description": "JS Console warn with backticks for interpolation"
 	},
 }

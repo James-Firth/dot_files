@@ -32,5 +32,6 @@
     "todohighlight.isEnable": true,
     "files.insertFinalNewline": true,
     "window.zoomLevel": 0,
-    "workbench.panel.location": "right"
+    "workbench.panel.location": "right",
+    "window.restoreWindows": "all"
 }

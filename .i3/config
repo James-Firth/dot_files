@@ -99,12 +99,12 @@ bindsym $mod+a focus parent
 #     VARIABLES     #
 #####################
 set $workspace1 "1 "
-set $workspace2 "2 Code "
-set $workspace3 "3 Terminal "
+set $workspace2 "2 "
+set $workspace3 "3 "
 set $workspace4 "4 misc"
 set $workspace9 "9 "
 set $workspace8 "8 "
-set $workspace10 "10 Slack "
+set $workspace10 "10 "
 
 # More workspaces!
 set $workspacef1 "F1"
