@@ -1,6 +1,6 @@
 {
     "editor.rulers": [
-        100
+        120
     ],
     "workbench.colorTheme": "Nord",
     "workbench.iconTheme": "vscode-great-icons",
@@ -27,11 +27,15 @@
     "workbench.sideBar.location": "left",
     "workbench.activityBar.visible": true,
     "editor.formatOnSave": true,
-    "eslint.autoFixOnSave": true,
+    "eslint.autoFixOnSave": false,
     "window.menuBarVisibility": "toggle",
     "todohighlight.isEnable": true,
     "files.insertFinalNewline": true,
     "window.zoomLevel": 0,
     "workbench.panel.location": "right",
-    "window.restoreWindows": "all"
+    "window.restoreWindows": "all",
+    "tslint.autoFixOnSave": true,
+    "[typescript]": {},
+    "javascript.format.enable": false,
+    "prettier.eslintIntegration": true,
 }

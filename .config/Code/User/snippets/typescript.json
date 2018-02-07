@@ -41,7 +41,7 @@
 	},
 	"console log interpolated stringify": {
 		"prefix": "logij",
-		"body": "console.log(`${JSON.stringify(${1})}`);",
+		"body": "console.log(`${2} ${JSON.stringify(${1})}`);",
 		"description": "JS Console log with backticks for interpolation and stringifying"
 	},
 	"console error interpolated": {
