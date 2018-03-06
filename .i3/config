@@ -325,7 +325,7 @@ exec_always --no-startup-id setxkbmap us -option caps:esc
 exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
 #Automount USB
-#exec udiskie
+exec udiskie
 
 #assign[class="CLASSNAME"] $workspaceX #get class name via xprop + click
 

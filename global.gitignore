@@ -1,0 +1,22 @@
+# Personal common files
+todo.md
+TODO.md
+
+# Dotfolders
+.vscode
+
+# Dotfiles
+.DS_Store
+.cache
+
+# Logs
+*.log
+
+# Language-Specific
+
+# Python
+*.pyc
+__pycache__
+
+# Nodejs
+node_modules

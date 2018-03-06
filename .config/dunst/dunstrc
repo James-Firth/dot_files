@@ -39,6 +39,7 @@
     icon_position = left
     icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/usr/share/icons/gnome/32x32
     #icon_folders = /usr/share/icons/elementary/actions/16/
+    max_icon_size = 32
 
 [frame]
     width = 1
