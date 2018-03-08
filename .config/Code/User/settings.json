@@ -39,6 +39,11 @@
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": true
     },
+    "gitlens.keymap": "alternate",
+    ///////////////////////////
+    // VCS Settings
+    ///////////////////////////
+    "git.autofetch": true,
     ///////////////////////////
     // Formatting and linting
     ///////////////////////////
