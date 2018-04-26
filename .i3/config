@@ -308,14 +308,21 @@ bindsym $mod+d exec rofi -show run -lines 10 -hide-scrollbar -separator-style no
 ## Caps lock indicator
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 
-
-#Auto-start
+##############
+# Auto-start #
+##############
 #exec firefox
 exec slack
 exec compton -f
 exec /home/james/.screenlayout/triple_layout.sh #different wallpaper on each
 exec --no-startup-id nitrogen --restore # restore the saved wallpapers for one on each monitor
 exec_always --no-startup-id setxkbmap us -option caps:esc
+
+# use xinput to find mouse id. Device Accel Conststant Deceleration (YYY)
+# Then set prop with <id> (YYY) VAL to change mouse sensitivity
+# Alternate Option here:
+# https://unix.stackexchange.com/questions/90572/how-can-i-set-mouse-sensitivity-not-just-mouse-acceleration
+exec_always xinput set-prop 11 295 1.5
 
 # single stretched wallpaper
 #exec_always feh --no-xinerama --bg-center ~/Pictures/wallpaper.jpg #multimonitor
@@ -332,10 +339,20 @@ exec udiskie
 # Fixing nautilus. Though I'm using nemo now
 exec gsettings set org.gnome.desktop.background show-desktop-icons false
 
+
+#####################
+#  Floating Windows #
+#####################
 # Makes borders/titlebars very tiny
 new_window none
 new_float normal
 hide_edge_borders vertical
+
+
+
+###################
+# Custom keybinds #
+###################
 
 # For switching between QWERTY and COLEMAK. Also switched capslock for semicolon.
 #bindsym Mod1+Shift+1 exec --no-startup-id setxkbmap us -option caps:semicolon && pkill -RTMIN+12 i3blocks
