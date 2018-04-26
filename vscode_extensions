@@ -1,7 +1,7 @@
-DougFinke.vscode-pandoc
 PeterJausovec.vscode-docker
 arcticicestudio.nord-visual-studio-code
 bierner.markdown-mermaid
+bierner.markdown-preview-github-styles
 dbaeumer.vscode-eslint
 drrouman.git-coauthors
 eamodio.gitlens
@@ -9,6 +9,10 @@ eg2.tslint
 emmanuelbeziat.vscode-great-icons
 esbenp.prettier-vscode
 kumar-harsh.graphql-for-vscode
+mathiasfrohlich.Kotlin
 ms-python.python
+ms-vscode.cpptools
 octref.vetur
 wayou.vscode-todo-highlight
+yzhang.markdown-all-in-one
+zengxingxin.sort-js-object-keys
