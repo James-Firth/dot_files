@@ -90,7 +90,7 @@ alias sshi="cat ~/.ssh/config"
 alias scanet="sudo nmap -sP 192.168.0.100-254"
 alias cless="less -R"
 alias clear3="clear; clear; clear;"
-alias rmnm=find -type d -name "node_modules" -exec rm -rf {} \;
+alias rmnm="find -type d -name \"node_modules\" -exec rm -rf {} \;"
 
 # Movement aliases
 alias projects="cd /home/james/projects"

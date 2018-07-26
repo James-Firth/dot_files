@@ -7,32 +7,20 @@
 # ~/.gtkrc-2.0
 # ~/.config/gtk-3.0/settings.ini
 
-#Add this ppa:
+#
 
-
-## Remove these lines after you've confirmed the version/path below ##
-echo "Exiting early to make sure you checked the arc-theme repo version/path"
-exit 1;
-## End of block to remove **
-
-#Update key and add repo to list
-# This is one of the two  URLs to check.
-wget http://download.opensuse.org/repositories/home:Horst3180/xUbuntu_16.04/Release.key;
-sudo apt-key add - < Release.key;
-
-# This is the other string to confirm
-sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' > /etc/apt/sources.list.d/arc-theme.list";
-sudo apt-get clean; #Needed to re-build the cache. otherwise the opensuse stuff freaks out.
-sudo apt-get update;
-
-# Install apps
-sudo apt-get install -y git git-gui gitk vim terminator zsh i3 tmux lxappearance arc-theme rofi compton i3blocks;
-sudo apt-get install -y scrot imagemagick i3lock;
-sudo apt-get install -y jq; # required by the workspace_renamer script
-sudo apt-get install -y keepass2 keepassx; #don't like X but need it for a few things.
-sudo apt-get install -y thunar gnome-icon-theme-full; #only necessary if nautilus isn't working
-sudo apt-get install -y nitrogen; #for configuring wallpapers
-sudo apt-get install -y arandr;
+# TODO Tidy up this section
+# Update cache and install apps
+sudo apt update;
+# Programming stuff 
+sudo apt install -y git git-gui gitk vim terminator zsh tmux;
+# i3 stuff - i3 launcher  
+sudo apt install -y i3 lxappearance rofi compton i3blocks i3lock gnome-icon-theme-full thunar nitrogen arandr;
+sudo apt install -y scrot imagemagick;
+sudo apt install -y jq; # required by the workspace_renamer script
+sudo apt install -y keepass2 keepassx; #don't like X but need it for a few things.
+sudo apt install -y thunar gnome-icon-theme-full; #only necessary if nautilus isn't working
+sudo apt install pinta; # Good image editor
 #Install icon theme
 #firefox https://github.com/NitruxSA/flattr-icons/releases
 # move Flattr and Flattr Dark to /usr/share/icons/
@@ -46,8 +34,6 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 # Download system font (Yosemite San Francisco) and copy to ~/.fonts/
 #firefox https://github.com/FortAwesome/Font-Awesome/releases
 
-# Install Firefox theme
-#firefox https://github.com/horst3180/arc-firefox-theme/releases
 
 # Setup folder structure I like
 mkdir -p "$HOME/.fonts"

@@ -10,7 +10,8 @@
     show_age_threshold = 60
     word_wrap = yes
     ignore_newline = no
-    #geometry = "200x5-6+30" #topright corner
+    geometry = "300x5-6+6"
+    # geometry = "200x5-6+30" #topright corner
 
     # the geometry of the window
     # geometry [{width}]x{height}][+/-{x}+/-{y}]
@@ -23,9 +24,9 @@
     # right side of the screen.  Y is measured from the top and down respectevly.
     # The width can be negative. In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "200x5-900+10" #Middle of screen for my setup
+    # geometry = "200x5-900+10" #Middle of screen for my setup
     transparency = 0
-    idle_threshold = 120
+    idle_threshold = 300
     monitor = 0
     follow = mouse
     sticky_history = yes
@@ -41,6 +42,17 @@
     #icon_folders = /usr/share/icons/elementary/actions/16/
     max_icon_size = 32
 
+# Current colours - Spring Pantone 2013
+# Emerald #00A78D
+# Dusk Blue #7DB6D3
+# tender shoots #bfd74b
+# Lemon zest #FFDF5E
+# Linen #F8DFC9
+# Poppy red #D9302B
+# Grayed Jade #98CCB6
+# Monaco Blue #154478
+# African Violet #B995C5
+# Nectarine #F68E51
 [frame]
     width = 1
     #color = "#383838"
@@ -59,11 +71,11 @@
     timeout = 5
 
 [urgency_normal]
-    background = "#2f343f"
-    foreground = "#f3f4f5"
+    background = "#00A78D"
+    foreground = "#154478"
     timeout = 20
 
 [urgency_critical]
-    background = "#181818"
-    foreground = "#E53935"
+    background = "#D9302B"
+    foreground = "#000000"
     timeout = 0

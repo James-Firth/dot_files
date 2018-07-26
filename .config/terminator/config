@@ -1,0 +1,74 @@
+[global_config]
+  enabled_plugins = InactivityWatch, ActivityWatch, APTURLHandler, LaunchpadBugURLHandler
+  handle_size = 0
+  inactive_color_offset = 1.0
+  suppress_multiple_term_dialog = True
+  title_font = Sans 16
+  title_inactive_bg_color = "#595959"
+  title_inactive_fg_color = "#c5c8c6"
+  title_receive_bg_color = "#e12726"
+  title_transmit_bg_color = "#6f94aa"
+  title_transmit_fg_color = "#c5c8c6"
+  title_use_system_font = False
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#1d1f21"
+    background_image = None
+    cursor_color = "#c5c8c6"
+    custom_command = XTERM=xterm-256color zsh -l
+    foreground_color = "#c5c8c6"
+    login_shell = True
+    palette = "#1d1f21:#cc342b:#198844:#fba922:#3971ed:#a36ac7:#3971ed:#c5c8c6:#969896:#cc342b:#198844:#fba922:#3971ed:#a36ac7:#3971ed:#ffffff"
+    scrollback_infinite = True
+    use_custom_command = True
+  [[Cobalt Neon]]
+    background_color = "#142838"
+    background_image = None
+    cursor_color = "#c4206f"
+    custom_command = XTERM=xterm-256color zsh -l
+    foreground_color = "#8ff586"
+    palette = "#142631:#ff2320:#3ba5ff:#e9e75c:#8ff586:#781aa0:#64ff57:#ba46b2:#fff688:#d4312e:#8ff586:#e9f06d:#3c7dd2:#8230a7:#6cbc67:#8ff586"
+    scrollback_infinite = True
+    use_custom_command = True
+  [[autumn]]
+    background_color = "#402e2e"
+    background_image = None
+    cursor_color = "#c0b18b"
+    custom_command = XTERM=xterm-256color zsh -l
+    foreground_color = "#c0b18b"
+    palette = "#4a3637:#d17b49:#7b8748:#af865a:#535c5c:#775759:#6d715e:#c0b18b:#402e2e:#ac5d2f:#647035:#8f6840:#444b4b:#614445:#585c49:#978965"
+    use_custom_command = True
+  [[other]]
+    background_color = "#142838"
+    background_image = None
+    cursor_color = "#c4206f"
+    custom_command = XTERM=xterm-256color zsh -l
+    foreground_color = "#8ff586"
+    palette = "#ff002f:#8a00ab:#3ba5ff:#fffc00:#8ff586:#ff32d1:#00fff0:#ff00d0:#ffec00:#781aa0:#8ff586:#f2ff00:#3c7dd2:#ff41af:#6cbc67:#8ff586"
+    scrollback_infinite = True
+    use_custom_command = True
+  [[screenshot]]
+    background_image = None
+    show_titlebar = False
+  [[vis]]
+    background_color = "#142838"
+    background_darkness = 0.01
+    background_image = None
+    background_type = transparent
+    cursor_color = "#c4206f"
+    custom_command = XTERM=xterm-256color zsh -l
+    foreground_color = "#8ff586"
+    palette = "#ff002f:#8a00ab:#3ba5ff:#fffc00:#8ff586:#ff32d1:#00fff0:#ff00d0:#ffec00:#781aa0:#8ff586:#f2ff00:#3c7dd2:#ff41af:#6cbc67:#8ff586"
+    scrollback_infinite = True
+    show_titlebar = False
+    use_custom_command = True

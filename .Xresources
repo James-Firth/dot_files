@@ -19,15 +19,26 @@
 !rofi.terminal:      terminator
 
 ! Rofi Winter colours
+!rofi.color-enabled: true
+!                  bg       border   separator
+!rofi.color-window: #edeff2, #3d3d3d, #3ea290
+!                  bg       fg       bg-alt   hl-bg   hl-fg
+!rofi.color-normal: #6673bf, #edeff2, #899aff, #3ea290, #ffffff
+!rofi.color-active: #31658c, #3d3d3d, #477ab3, #52ad91, #fdf6e3
+!rofi.color-urgent: #647035, #b23636, #c0b18b, #b23636, #fdf6e3
+!rofi.terminal:      terminator
+
+
+
+! Rofi Spring colours
 rofi.color-enabled: true
 !                  bg       border   separator
-rofi.color-window: #edeff2, #3d3d3d, #3ea290
+rofi.color-window: #00a761, #00a761, #00a761
 !                  bg       fg       bg-alt   hl-bg   hl-fg
-rofi.color-normal: #6673bf, #edeff2, #899aff, #3ea290, #ffffff
-rofi.color-active: #31658c, #3d3d3d, #477ab3, #52ad91, #fdf6e3
-rofi.color-urgent: #647035, #b23636, #c0b18b, #b23636, #fdf6e3
+rofi.color-normal: #bfd74b, #154478, #F68E51, #FFDF5E, #ffffff
+rofi.color-active: #F68E51, #3d3d3d, #477ab3, #F68E51, #fdf6e3
+rofi.color-urgent: #D9302B, #b23636, #c0b18b, #b23636, #fdf6e3
 rofi.terminal:      terminator
-
 
 ! special
 *.foreground:   #ffffff

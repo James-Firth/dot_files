@@ -215,49 +215,82 @@ bindsym $mod+r mode "resize"
 # set $indicator           #ac5d2f
 
 
-# Current colours - Winter
-set $text-color          #edeff2
-set $focused-text-color  #6673bf
-set $inactive-text-color #c8cacc
+# Winter
+# set $text-color          #edeff2
+# set $focused-text-color  #6673bf
+# set $inactive-text-color #c8cacc
 
-set $bg-color            #95a7cc
-set $focused-bg-color    #ffffff
-set $inactive-bg-color   #95a7cc
-set $urgent-bg-color     #3ea290
+# set $bg-color            #95a7cc
+# set $focused-bg-color    #ffffff
+# set $inactive-bg-color   #95a7cc
+# set $urgent-bg-color     #3ea290
+
+# set $separator           #3d3d3d
+# set $indicator           #3ea290
+
+# Current colours - Spring Pantone 2013
+# Emerald #00A78D
+# Dusk Blue #7DB6D3
+# tender shoots #bfd74b
+# Lemon zest #FFDF5E
+# Linen #F8DFC9
+# Poppy red #D9302B
+# Grayed Jade #98CCB6
+# Monaco Blue #154478
+# African Violet #B995C5
+# Nectarine #F68E51
+set $text-color          #B995C5
+set $focused-text-color  #154478
+set $inactive-text-color #00A78D
+set $urgent-text-color   #ffffff
+
+set $active-bg-color      #00A78D
+set $bg-color             #98CCB6
+set $focused-bg-color     #bfd74b
+set $inactive-bg-color    #98CCB6
+set $placeholder-bg-color #154478
+set $urgent-bg-color      #F68E51
 
 set $separator           #3d3d3d
 set $indicator           #3ea290
 
 # window colors
-#                       border              background          text                 indicator   child_border
-client.focused          $bg-color           $bg-color           $focused-text-color  $indicator  #ffffff
-client.unfocused        $inactive-bg-color  $inactive-bg-color  $inactive-text-color $indicator  #ffffff
-client.focused_inactive $inactive-bg-color  $inactive-bg-color  $inactive-text-color $indicator  #ffffff
-client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color          $indicator  #ffffff
+#                       border                 background             text                 indicator   child_border
+client.focused          $bg-color              $bg-color              $focused-text-color  $indicator  #ffffff
+client.unfocused        $inactive-bg-color     $inactive-bg-color     $inactive-text-color $indicator  #ffffff
+client.focused_inactive $inactive-bg-color     $inactive-bg-color     $inactive-text-color $indicator  #ffffff
+client.urgent           $urgent-bg-color       $urgent-bg-color       $focused-text-color  $indicator  #ffffff
+client.placeholder      $placeholder-bg-color  $placeholder-bg-color  $focused-text-color  $indicator  #ffffff
 # This is for clients that don't take up the whole area
-client.background #402e2e
+client.background #154478
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 # bar
 bar {
-	tray_output primary
-	status_command i3blocks -c ~/.i3/i3blocks.conf
-	#status_command i3status
-	colors {
+  position bottom
+  tray_output primary
+  status_command i3blocks -c ~/.i3/i3blocks.conf
+  #status_command i3status
+  colors {
     #Info found at i3 userguide section: 5.15. Colors
-		background $bg-color
+    background $bg-color
+    statusline $text-color # Colour of text in bar.
     separator $separator
-		#                  border             background         text
-		focused_workspace  $focused-bg-color  $focused-bg-color  $focused-text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-	}
+    #                  border             background         text
+    # Where the mouse is
+    focused_workspace  $focused-bg-color  $focused-bg-color  $focused-text-color
+    # The workspace that will be active if you move your mouse to that monitor
+    active_workspace  $active-bg-color  $focused-bg-color  $inactve-text-color
+    # All the other workspaces
+    inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+    urgent_workspace   $urgent-bg-color   $urgent-bg-color   $urgent-text-color
+  }
 }
 
-# Default stuff to show a menu
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) shutdown
-mode "$mode_system" {
+# Power Menu
+set $power_menu System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) shutdown
+mode "$power_menu" {
     bindsym l exec --no-startup-id ~/.i3/scripts/screen_locker.sh, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     bindsym s exec --no-startup-id systemctl suspend, mode "default"
@@ -269,12 +302,25 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+Print mode "$mode_system"
+bindsym $mod+shift+p mode "$power_menu"
+
+# Display Menu
+set $display_menu System (d) desk layout, (l) laptop layout
+mode "$display_menu" {
+    bindsym d exec --no-startup-id ~/.i3/scripts/screenlayout/triplets.sh, mode "default"
+    bindsym l exec --no-startup-id ~/.i3/scripts/screenlayout/laptop_layout.sh, mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+shift+d mode "$display_menu"
 
 # For full sized keyboards
 bindsym $mod+Shift+KP_1 exec ~/.i3/scripts/screenlayout/laptop_layout.sh
 bindsym $mod+Shift+KP_2 exec ~/.i3/scripts/screenlayout/triplets.sh
+
 # For TKL and smaller keyboards
+# may or may not work...?
 bindsym $mod+Control+Alt+1 exec ~/.i3/scripts/screenlayout/laptop_layout.sh
 bindsym $mod+Control+Alt+2 exec ~/.i3/scripts/screenlayout/triplets.sh
 
@@ -316,6 +362,7 @@ exec slack
 exec compton -f
 exec /home/james/.screenlayout/triple_layout.sh #different wallpaper on each
 exec --no-startup-id nitrogen --restore # restore the saved wallpapers for one on each monitor
+exec --no-startup-id shutter # For screenshots so I don't have to manually launch
 exec_always --no-startup-id setxkbmap us -option caps:esc
 
 # use xinput to find mouse id. Device Accel Conststant Deceleration (YYY)
