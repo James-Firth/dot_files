@@ -1,3 +1,7 @@
 *~
 *.swp
 *.swo
+.config/Code/*
+!.config/Code/User/snippet
+!.config/Code/User/keybindings
+!.config/Code/User/settings.json

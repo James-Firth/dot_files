@@ -7,6 +7,8 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="spaceship"
 
+
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -144,12 +146,3 @@ add-zsh-hook chpwd load-nvmrc
 
 export NODE_ENV=development
 export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:./node_modules/.bin:/opt:$PATH"
-source ~/.config/up/up.sh
-
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /home/james/projects/work/medic/medic-server/lambda/medic-demo-lambda/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/james/projects/work/medic/medic-server/lambda/medic-demo-lambda/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/james/projects/work/medic/medic-server/lambda/medic-demo-lambda/node_modules/tabtab/.completions/sls.zsh ]] && . /home/james/projects/work/medic/medic-server/lambda/medic-demo-lambda/node_modules/tabtab/.completions/sls.zsh
