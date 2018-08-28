@@ -13,7 +13,8 @@
 # Update cache and install apps
 sudo apt update;
 # Programming stuff 
-sudo apt install -y git git-gui gitk vim terminator zsh tmux;
+sudo apt install -y git git-gui gitk vim zsh tmux;
+sudo apt install terminator;
 # i3 stuff - i3 launcher  
 sudo apt install -y i3 lxappearance rofi compton i3blocks i3lock gnome-icon-theme-full nitrogen arandr;
 sudo apt install -y scrot imagemagick;
