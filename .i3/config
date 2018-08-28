@@ -305,10 +305,11 @@ mode "$power_menu" {
 bindsym $mod+shift+p mode "$power_menu"
 
 # Display Menu
-set $display_menu System (d) desk layout, (l) laptop layout
+set $display_menu System (d) docked default, (w) docked wide (l) laptop layout
 mode "$display_menu" {
-    bindsym d exec --no-startup-id ~/.i3/scripts/screenlayout/triplets.sh, mode "default"
-    bindsym l exec --no-startup-id ~/.i3/scripts/screenlayout/laptop_layout.sh, mode "default"
+    bindsym d exec --no-startup-id ~/.i3/scripts/screenlayout/triple_portrait.sh, mode "default"
+    bindsym w exec --no-startup-id ~/.i3/scripts/screenlayout/triple_landscape.sh, mode "default"
+    bindsym l exec --no-startup-id ~/.i3/scripts/screenlayout/laptop.sh, mode "default"
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -316,13 +317,13 @@ mode "$display_menu" {
 bindsym $mod+shift+d mode "$display_menu"
 
 # For full sized keyboards
-bindsym $mod+Shift+KP_1 exec ~/.i3/scripts/screenlayout/laptop_layout.sh
-bindsym $mod+Shift+KP_2 exec ~/.i3/scripts/screenlayout/triplets.sh
+bindsym $mod+Shift+KP_1 exec ~/.i3/scripts/screenlayout/laptop.sh
+bindsym $mod+Shift+KP_2 exec ~/.i3/scripts/screenlayout/triple_portrait.sh
 
 # For TKL and smaller keyboards
 # may or may not work...?
-bindsym $mod+Control+Alt+1 exec ~/.i3/scripts/screenlayout/laptop_layout.sh
-bindsym $mod+Control+Alt+2 exec ~/.i3/scripts/screenlayout/triplets.sh
+bindsym $mod+Control+Alt+1 exec ~/.i3/scripts/screenlayout/laptop.sh
+bindsym $mod+Control+Alt+2 exec ~/.i3/scripts/screenlayout/triple_portrait.sh
 
 # Locks the screen and throws up a lock image.
 bindsym $mod+shift+x exec ~/.i3/scripts/screen_locker.sh

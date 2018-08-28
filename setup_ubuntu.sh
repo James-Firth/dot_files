@@ -56,7 +56,7 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 #firefox https://github.com/FortAwesome/Font-Awesome/releases
 
 # Download system font (Yosemite San Francisco) and copy to ~/.fonts/
-#firefox https://github.com/FortAwesome/Font-Awesome/releases
+#firefox https://github.com/supermarin/YosemiteSanFranciscoFont
 
 
 # Setup folder structure I like

@@ -1,1 +1,0 @@
-/home/james/.screenlayout/laptop_layout.sh
