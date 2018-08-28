@@ -1,0 +1,12 @@
+#!/bin/bash
+
+
+echo "
++ — uncommitted changes in the index;
+! — unstaged changes;
+? — untracked changes;
+$ — stashed changes;
+⇣ — unpulled commits;
+⇡ — unpushed commits.
+"
+

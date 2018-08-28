@@ -1,0 +1,38 @@
+#!/bin/bash
+
+
+# Usage:
+# checksum [-a algorithm] [OTHER FLAGS????? TODO] CHECKSUM FILE
+# -a defaults to sha1
+
+
+#Parse all but the last 2 (positional) arguments
+while [[ $(expr $# - 2) -gt 0 ]]; do
+  key="$1"
+  val="$2"
+  case $key in
+
+      --debug)
+        set -x
+      ;;
+
+      -a)
+        hash="$val"
+        shift
+      ;;
+     --quiet)
+       quiet="--quiet"
+     ;;
+    --status)
+       status="--status"
+    ;;
+
+  esac
+  shift
+done
+
+checksum="${@: -2:1}"
+file="${@: -1}"
+
+
+echo "$checksum $file" | sha1sum $quiet $status -c -

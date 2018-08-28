@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#i3-msg 'workspace "9 "; exec /usr/bin/firefox -new-window youtube.com'
+google-chrome --profile-directory="james" --new-window "https://www.youtube.com/feed/subscriptions"
