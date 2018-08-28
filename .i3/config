@@ -363,7 +363,6 @@ exec compton -f
 exec /home/james/.screenlayout/triple_layout.sh #different wallpaper on each
 exec --no-startup-id nitrogen --restore # restore the saved wallpapers for one on each monitor
 exec --no-startup-id shutter # For screenshots so I don't have to manually launch
-exec_always --no-startup-id setxkbmap us -option caps:esc
 
 # use xinput to find mouse id. Device Accel Conststant Deceleration (YYY)
 # Then set prop with <id> (YYY) VAL to change mouse sensitivity
