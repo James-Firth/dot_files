@@ -42,7 +42,7 @@
     #icon_folders = /usr/share/icons/elementary/actions/16/
     max_icon_size = 32
 
-# Current colours - Spring Pantone 2013
+# Spring Pantone 2013
 # Emerald #00A78D
 # Dusk Blue #7DB6D3
 # tender shoots #bfd74b
@@ -53,7 +53,10 @@
 # Monaco Blue #154478
 # African Violet #B995C5
 # Nectarine #F68E51
+
+# Dracula theme: #8BE9FD, #44475a, #FF7AC6
 [frame]
+
     width = 1
     #color = "#383838"
     color = "#2f343f"
@@ -66,16 +69,16 @@
     # context = ctrl+shift+period
 
 [urgency_low]
-    background = "#2f343f"
-    foreground = "#676E7D"
+    background = "#44475a"
+    foreground = "#FFFFFF"
     timeout = 5
 
 [urgency_normal]
-    background = "#00A78D"
-    foreground = "#154478"
+    background = "#44475a"
+    foreground = "#8BE9FD"
     timeout = 20
 
 [urgency_critical]
-    background = "#D9302B"
+    background = "#FF7AC6"
     foreground = "#000000"
     timeout = 0

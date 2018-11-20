@@ -102,9 +102,9 @@ set $workspace1 "1 "
 set $workspace2 "2 "
 set $workspace3 "3 "
 set $workspace4 "4 misc"
-set $workspace9 "9 "
+set $workspace9 "9 🎥"
 set $workspace8 "8 "
-set $workspace10 "10 "
+set $workspace10 "10 💬"
 
 # More workspaces!
 set $workspacef1 "F1"
@@ -239,30 +239,62 @@ bindsym $mod+r mode "resize"
 # Monaco Blue #154478
 # African Violet #B995C5
 # Nectarine #F68E51
-set $text-color          #B995C5
-set $focused-text-color  #154478
-set $inactive-text-color #00A78D
-set $urgent-text-color   #ffffff
+# set $text-color          #B995C5
+# set $focused-text-color  #154478
+# set $inactive-text-color #00A78D
+# set $urgent-text-color   #ffffff
 
-set $active-bg-color      #00A78D
-set $bg-color             #98CCB6
-set $focused-bg-color     #bfd74b
-set $inactive-bg-color    #98CCB6
+# set $active-bg-color      #00A78D
+# set $bg-color             #98CCB6
+# set $focused-bg-color     #bfd74b
+# set $inactive-bg-color    #98CCB6
+# set $placeholder-bg-color #154478
+# set $urgent-bg-color      #F68E51
+
+# set $separator           #3d3d3d
+# set $indicator           #3ea290
+
+# Should try out this dracula theme with polybar
+# https://www.reddit.com/r/unixporn/comments/656sme/i3_dracula/
+
+########## START DRACULA COLOURS ###########
+
+# set some nice colors      border  background  text  indicator
+# client.focused              $id     $pk         $tx     $id
+# client.unfocused            $bg     $bg         $fg     $id
+# client.focused_inactive     $bg     $bg         $pk     $id
+# client.urgent               $yw     $yw         $tx     $id
+#border & indicator are ignored
+# client.placeholder $bg $bg $bg $bg
+########## END DRACULA COLOURS ###########
+
+set $text-color          #ff79c6
+set $focused-text-color  #f8f8f2
+set $inactive-text-color #6272a4
+set $urgent-text-color   #040404
+
+set $bg-color             #282a36
+set $focused-bg-color     #6272a4
+set $focused-inactive-bg  #44475a
+set $inactive-bg-color    #282a36
 set $placeholder-bg-color #154478
-set $urgent-bg-color      #F68E51
+set $urgent-bg-color      #ff79c6
 
 set $separator           #3d3d3d
-set $indicator           #3ea290
-
+set $indicator           #040404
 # window colors
 #                       border                 background             text                 indicator   child_border
 client.focused          $bg-color              $bg-color              $focused-text-color  $indicator  #ffffff
+# does this even do anything?
+# client.focused_inactive #000000     #000000     $inactive-text-color $indicator  #ffffff
 client.unfocused        $inactive-bg-color     $inactive-bg-color     $inactive-text-color $indicator  #ffffff
-client.focused_inactive $inactive-bg-color     $inactive-bg-color     $inactive-text-color $indicator  #ffffff
 client.urgent           $urgent-bg-color       $urgent-bg-color       $focused-text-color  $indicator  #ffffff
 client.placeholder      $placeholder-bg-color  $placeholder-bg-color  $focused-text-color  $indicator  #ffffff
 # This is for clients that don't take up the whole area
 client.background #154478
+
+
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -305,11 +337,12 @@ mode "$power_menu" {
 bindsym $mod+shift+p mode "$power_menu"
 
 # Display Menu
-set $display_menu System (d) docked default, (w) docked wide (l) laptop layout
+set $display_menu System (d) docked default, (w) docked wide (l) laptop layout (h) home
 mode "$display_menu" {
     bindsym d exec --no-startup-id ~/.i3/scripts/screenlayout/triple_portrait.sh, mode "default"
     bindsym w exec --no-startup-id ~/.i3/scripts/screenlayout/triple_landscape.sh, mode "default"
     bindsym l exec --no-startup-id ~/.i3/scripts/screenlayout/laptop.sh, mode "default"
+    bindsym h exec --no-startup-id ~/.i3/scripts/screenlayout/laptop_plus_monitor.sh, mode "default"
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
