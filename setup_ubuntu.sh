@@ -36,6 +36,7 @@ ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/the
 sudo apt install i3 rofi compton i3blocks i3lock nitrogen arandr;
 sudo apt install imagemagick; # Useful for lots of processing
 sudo apt install shutter; # for screenshots
+sudo apt install neofetch; # for system info
 sudo apt install -y jq keepass2; # required by the workspace_renamer script and keepass for passwords
 sudo apt install -y pinta; # Good image editor
 sudo snap install slack --classic; # install slack as a snap
