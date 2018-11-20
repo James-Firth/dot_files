@@ -50,8 +50,23 @@
 		"description": "JS Console dir with backticks for interpolation"
 	},
 	"console warn interpolated": {
-		"prefix": "warni",
+		"prefix": "warnj",
 		"body": "console.warn(`${${1}}`",
 		"description": "JS Console warn with backticks for interpolation"
+	},
+	"console log json stringified": {
+		"prefix": "logj",
+		"body": "console.log(`${1}${JSON.stringify(${2:temp})}`);",
+		"description": "JS Console log interpolated and stringifies object"
+	},
+	"console error json stringified": {
+		"prefix": "errj",
+		"body": "console.error(`${1}${JSON.stringify(${2})}`);",
+		"description": "JS Console error interpolated and stringifies object"
+	},
+	"console warn json stringified": {
+		"prefix": "warnj",
+		"body": "console.warn(`${1}${JSON.stringify(${2})}`",
+		"description": "JS Console warn interpolated and stringifies object"
 	},
 }

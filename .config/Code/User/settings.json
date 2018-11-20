@@ -20,8 +20,7 @@
     // VSCode Style and Info
     /////////////////////
     "workbench.colorTheme": "Dracula", // Nice, well supported dark theme
-    "workbench.iconTheme": "vscode-great-icons", // is what it says
-    "window.menuBarVisibility": "toggle", //useful for i3wm
+    "workbench.iconTheme": "vscode-great-icons", //useful for i3wm
     "breadcrumbs.enabled": true,
     /////////////////////////
     /// Extension Settings
@@ -56,5 +55,21 @@
         "javascript",
         "vue"
     ],
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    "window.menuBarVisibility": "toggle",
+    "explorer.autoReveal": false,
+    "typescript.format.enable": false,
+    "editor.tabSize": 2,
+    "githubPullRequests.hosts": [
+        {
+            "host": "https://github.com",
+            "username": "oauth",
+            "token": "system"
+        }
+    ],
+    "window.zoomLevel": 0,
+    "search.showLineNumbers": true,
     // "prettier.eslintIntegration": false,
 }

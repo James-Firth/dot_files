@@ -66,5 +66,22 @@
     {
         "key": "ctrl+;",
         "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "shift+alt+e",
+        "command": "workbench.view.explorer"
+    },
+    {
+        "key": "ctrl+shift+e",
+        "command": "workbench.view.explorer"
+    },
+    {
+        "key": "ctrl+shift+e",
+        "command": "-workbench.action.quickOpenNavigatePreviousInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
+    },
+    {
+        "key": "ctrl+k n",
+        "command": "editor.action.nextCommentThreadAction"
     }
 ]
