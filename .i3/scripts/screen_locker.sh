@@ -20,5 +20,7 @@ tmpbg='/tmp/screen.png'
 #convert "$tmpbg" "$icon" -gravity center -composite -matte "$tmpbg"
 
 pkill -u "$USER" -USR1 dunst
-i3lock -n -i "$HOME/Pictures/wallpapers/lockscreen.png" -p win -f --ignore-empty-password
+# REMINDER: Lockscreen image MUST be a png not jpg
+# i3lock --nofork --image="$HOME/Pictures/wallpapers/lockscreen.png" --tiling --pointer=win --show-failed-attempts --ignore-empty-password
+i3lock --nofork -c aaaaaa --tiling --pointer=win --show-failed-attempts --ignore-empty-password
 pkill -u "$USER" -USR2 dunst
