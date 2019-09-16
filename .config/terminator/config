@@ -21,29 +21,16 @@
       type = Window
 [plugins]
 [profiles]
-  [[default]] #Dracula
+  [[default]]
     background_color = "#1e1f29"
-    background_image = None
-    palette = "#000000:#ff5555:#50fa7b:#f1fa8c:#bd93f9:#ff79c6:#8be9fd:#bbbbbb:#555555:#ff5555:#50fa7b:#f1fa8c:#bd93f9:#ff79c6:#8be9fd:#ffffff"
-    foreground_color = "#e6e6e6"
     cursor_color = "#e6e6e6"
-
-    scrollback_infinite = True
     custom_command = XTERM=xterm-256color zsh -l
-    use_custom_command = True
-  [[material]]
-    background_color = "#1d1f21"
-    background_image = None
-    cursor_color = "#c5c8c6"
-    custom_command = XTERM=xterm-256color zsh -l
-    foreground_color = "#c5c8c6"
-    login_shell = True
-    palette = "#1d1f21:#cc342b:#198844:#fba922:#3971ed:#a36ac7:#3971ed:#c5c8c6:#969896:#cc342b:#198844:#fba922:#3971ed:#a36ac7:#3971ed:#ffffff"
+    foreground_color = "#e6e6e6"
+    palette = "#000000:#ff5555:#50fa7b:#f1fa8c:#bd93f9:#ff79c6:#8be9fd:#bbbbbb:#555555:#ff5555:#50fa7b:#f1fa8c:#bd93f9:#ff79c6:#8be9fd:#ffffff"
     scrollback_infinite = True
     use_custom_command = True
   [[Cobalt Neon]]
     background_color = "#142838"
-    background_image = None
     cursor_color = "#c4206f"
     custom_command = XTERM=xterm-256color zsh -l
     foreground_color = "#8ff586"
@@ -52,15 +39,22 @@
     use_custom_command = True
   [[autumn]]
     background_color = "#402e2e"
-    background_image = None
     cursor_color = "#c0b18b"
     custom_command = XTERM=xterm-256color zsh -l
     foreground_color = "#c0b18b"
     palette = "#4a3637:#d17b49:#7b8748:#af865a:#535c5c:#775759:#6d715e:#c0b18b:#402e2e:#ac5d2f:#647035:#8f6840:#444b4b:#614445:#585c49:#978965"
     use_custom_command = True
+  [[material]]
+    background_color = "#1d1f21"
+    cursor_color = "#c5c8c6"
+    custom_command = XTERM=xterm-256color zsh -l
+    foreground_color = "#c5c8c6"
+    login_shell = True
+    palette = "#1d1f21:#cc342b:#198844:#fba922:#3971ed:#a36ac7:#3971ed:#c5c8c6:#969896:#cc342b:#198844:#fba922:#3971ed:#a36ac7:#3971ed:#ffffff"
+    scrollback_infinite = True
+    use_custom_command = True
   [[other]]
     background_color = "#142838"
-    background_image = None
     cursor_color = "#c4206f"
     custom_command = XTERM=xterm-256color zsh -l
     foreground_color = "#8ff586"
@@ -68,12 +62,10 @@
     scrollback_infinite = True
     use_custom_command = True
   [[screenshot]]
-    background_image = None
     show_titlebar = False
   [[vis]]
     background_color = "#142838"
     background_darkness = 0.01
-    background_image = None
     cursor_color = "#c4206f"
     custom_command = XTERM=xterm-256color zsh -l
     foreground_color = "#8ff586"
@@ -81,4 +73,3 @@
     scrollback_infinite = True
     show_titlebar = False
     use_custom_command = True
-
