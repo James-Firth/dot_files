@@ -80,7 +80,7 @@ bindsym $mod+f fullscreen
 # change container layout (stacked, tabbed, toggle split)
 # Disabling two as I never really use them
 #bindsym $mod+s layout stacking
-#bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -284,7 +284,7 @@ set $separator           #3d3d3d
 set $indicator           #040404
 # window colors
 #                       border                 background             text                 indicator   child_border
-client.focused          $bg-color              $bg-color              $focused-text-color  $indicator  #ffffff
+client.focused          $focused-bg-color      $focused-bg-color      $focused-text-color  $indicator  #ffffff
 # does this even do anything?
 # client.focused_inactive #000000     #000000     $inactive-text-color $indicator  #ffffff
 client.unfocused        $inactive-bg-color     $inactive-bg-color     $inactive-text-color $indicator  #ffffff
@@ -337,12 +337,13 @@ mode "$power_menu" {
 bindsym $mod+shift+p mode "$power_menu"
 
 # Display Menu
-set $display_menu System (d) docked default, (w) docked wide (l) laptop layout (h) home
+set $display_menu System (d) docked default, (w) docked wide (l) laptop layout (h) home (r) reading
 mode "$display_menu" {
     bindsym d exec --no-startup-id ~/.i3/scripts/screenlayout/triple_portrait.sh, mode "default"
     bindsym w exec --no-startup-id ~/.i3/scripts/screenlayout/triple_landscape.sh, mode "default"
     bindsym l exec --no-startup-id ~/.i3/scripts/screenlayout/laptop.sh, mode "default"
     bindsym h exec --no-startup-id ~/.i3/scripts/screenlayout/laptop_plus_monitor.sh, mode "default"
+    bindsym r exec --no-startup-id ~/.i3/scripts/screenlayout/triple_monitor_double_portrait.sh, mode "default"
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -406,7 +407,8 @@ exec --no-startup-id shutter # For screenshots so I don't have to manually launc
 exec_always xinput set-prop 11 295 1.5
 
 # single stretched wallpaper
-#exec_always feh --no-xinerama --bg-center ~/Pictures/wallpaper.jpg #multimonitor
+# Tiling wallpaper
+exec_always feh --no-xinerama --bg-tile $HOME/Pictures/tiling/escheresque.jpg #multimonitor
 
 
 # sudo GUI and network manage applet fixes.
@@ -441,7 +443,7 @@ hide_edge_borders vertical
 #bindsym Mod1+Shift+2 exec --no-startup-id setxkbmap us -variant colemak && pkill -RTMIN+12 i3blocks
 
 # Interesting idea to make a floating youtube window. No Firefox support only chrome
-bindsym $mod+y fullscreen disable, floating enable, resize set 400 300, sticky enable, move window to position 3440 750, move scratchpad, scratchpad show
+bindsym $mod+y fullscreen disable, floating enable, resize set 600 500, sticky enable, move window to position 1420 975, move scratchpad, scratchpad show
 
 #scratchpad keybinds
 bindsym $mod+s scratchpad show
