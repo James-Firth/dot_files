@@ -5,7 +5,7 @@
     "editor.rulers": [
         115
     ],
-    "editor.renderWhitespace": "boundary",
+    "editor.renderWhitespace": "all",
     "explorer.confirmDragAndDrop": false, // Less annoying this way
     "files.insertFinalNewline": true, // Appeases GitHub
     "search.exclude": {
@@ -15,11 +15,13 @@
         "**/package-lock.json": true
     },
     "search.smartCase": true, // more convenient search
-    "window.restoreWindows": "all",
     /////////////////////
     // VSCode Style and Info
     /////////////////////
     "workbench.colorTheme": "Dracula", // Nice, well supported dark theme
+    "workbench.colorCustomizations": {
+        "editor.selectionHighlightBackground": "#6272a4", // brighter highlight to increase match visibility
+    },
     "workbench.iconTheme": "vscode-great-icons", //useful for i3wm
     "breadcrumbs.enabled": true,
     /////////////////////////
@@ -61,15 +63,32 @@
     "window.menuBarVisibility": "toggle",
     "explorer.autoReveal": false,
     "typescript.format.enable": false,
-    "editor.tabSize": 2,
-    "githubPullRequests.hosts": [
-        {
-            "host": "https://github.com",
-            "username": "oauth",
-            "token": "system"
-        }
-    ],
     "window.zoomLevel": 0,
     "search.showLineNumbers": true,
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "editor.fontFamily": "'Fira Code','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'", // has useful <= ligatures
+    "editor.fontLigatures": true, // needed to enable the great <= etc ligatures
+    "editor.fontWeight": "400",
+    "emmet.includeLanguages": {
+        "html": "html",
+        "vue": "html"
+    },
+    "window.titleBarStyle": "native",
+    "window.restoreWindows": "none",
+    "[json]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "explorer.openEditors.visible": 0,
+    "editor.minimap.maxColumn": 200,
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.renderCharacters": false,
+    "editor.cursorBlinking": "phase",
+    "editor.minimap.enabled": false,
+    "csharp.suppressHiddenDiagnostics": false,
+    "omnisharp.enableRoslynAnalyzers": true,
+    "csharp.referencesCodeLens.enabled": false,
+    "files.trimTrailingWhitespace": true,
+    "editor.wordWrap": "on",
     // "prettier.eslintIntegration": false,
 }
