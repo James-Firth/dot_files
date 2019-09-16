@@ -387,6 +387,7 @@ bindsym $mod+d exec rofi -show run -lines 10 -hide-scrollbar -separator-style no
 
 ## Caps lock indicator
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 ##############
 # Auto-start #
@@ -395,7 +396,7 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 exec slack
 exec compton -f
 exec /home/james/.screenlayout/triple_layout.sh #different wallpaper on each
-exec --no-startup-id nitrogen --restore # restore the saved wallpapers for one on each monitor
+# exec --no-startup-id nitrogen --restore # restore the saved wallpapers for one on each monitor
 exec --no-startup-id shutter # For screenshots so I don't have to manually launch
 
 # use xinput to find mouse id. Device Accel Conststant Deceleration (YYY)
