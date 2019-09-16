@@ -47,7 +47,7 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nvm aws emoji zsh-syntax-highlighting)
+plugins=(git nvm aws emoji)
 
 # User configuration
 
@@ -88,14 +88,18 @@ export NODE_PATH=$NODEPATH:/usr/local/lib/node_modules
 
 #General Aliases for my linux setup.
 alias gcr='git checkout -t'
+alias ggup="git pull --rebase origin $(git_current_branch)"
 alias sshi="cat ~/.ssh/config"
 alias scanet="sudo nmap -sP 192.168.0.100-254"
 alias cless="less -R"
+alias lessn="less --LINE-NUMBERS"
+alias clessn="less --LINE-NUMBERS --RAW-CONTROl-CHARS"
 alias clear3="clear; clear; clear;"
 alias rmnm="find -type d -name \"node_modules\" -exec rm -rf {} \;"
 
 # Movement aliases
 alias projects="cd /home/james/projects"
+alias medic="cd /home/james/projects/work/medic"
 alias work="cd /home/james/projects/work"
 alias personal="cd /home/james/projects/personal"
 
@@ -132,6 +136,21 @@ node_add_and_delete_dependency() {
 }
 alias nadd=node_add_and_delete_dependency
 
+docker_stop_and_remove() {
+  containers="${@: 1}"
+  if [ "" = "$containers" ]; then
+    echo "Missing parameters!";
+    return 1
+  fi
+
+  echo "Stopping and removing docker containers..."
+  for current in $(echo $containers); do
+    echo -n "$(echo $current | cut -c-7)"
+    docker stop "$current" && docker rm "$current"
+  done
+  echo "Stopped and removed all containers listed"
+}
+alias dsrm=docker_stop_and_remove
 
 # Path, ENV, etc. setup. Mostly 3rd party.
 export NVM_DIR="$HOME/.nvm"
@@ -144,6 +163,7 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 
+export NNN_COPIER='$HOME/bin/copy'
 export NODE_ENV=development
 export GOPATH="$HOME/projects/go"
 export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:./node_modules/.bin:/opt:/usr/local/go/bin:$GOPATH:$PATH"
@@ -156,3 +176,12 @@ export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/
 
 # added by travis gem
 [ -f /home/james/.travis/travis.sh ] && source /home/james/.travis/travis.sh
+fpath=($fpath "/home/james/.zfunctions")
+
+  # Set Spaceship ZSH as a prompt
+  autoload -U promptinit; promptinit
+  prompt spaceship
+
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /home/james/projects/work/medic/aspenLeaf/node_modules/tabtab/.completions/slss.zsh ]] && . /home/james/projects/work/medic/aspenLeaf/node_modules/tabtab/.completions/slss.zsh
