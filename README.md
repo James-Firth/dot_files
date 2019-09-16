@@ -21,6 +21,7 @@ I created these setup files after following [this great video tutorial on i3](ht
 During the tutorial linked above I had to reference these sites. I collected them in one place, below, in case the video tutorials go down.
 I also kept copies/snapshots of the themes/fonts/icons in this repo as a back up in case any of them go down.
 
+- [Firefox Color Theme - Dracula Theme](https://color.firefox.com/?theme=XQAAAAISAQAAAAAAAABBqYhm849SCia2CaaEGccwS-xNKlhblI1dVO80iLEgqm2yqTSsdv-NZZ89G7FkcQPhvjTI5-W4vYsI8D_gSxXXzpkpS5wtx13PoFH510TuHKNMpC1_zaCQ9NECWAsTWFXsKc4acJkgl7Yv8s8hrZT_rWWmNEG2wY-fvaZkQDCSdHqou5DOaCEDYXrw7bXIn3UOowKi-u-VgIXVhhLc1txib82__lGOuk-fhPaZYOR759K-rQgJcgx8Paf69YCA)
 - [i3wm docs](https://i3wm.org/)
 - [Font Awesome](https://github.com/FortAwesome/Font-Awesome/releases)
 - [San Francisco font](https://github.com/supermarin/YosemiteSanFranciscoFont)
