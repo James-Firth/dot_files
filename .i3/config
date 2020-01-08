@@ -342,7 +342,7 @@ mode "$display_menu" {
     bindsym d exec --no-startup-id ~/.i3/scripts/screenlayout/triple_portrait.sh, mode "default"
     bindsym w exec --no-startup-id ~/.i3/scripts/screenlayout/triple_landscape.sh, mode "default"
     bindsym l exec --no-startup-id ~/.i3/scripts/screenlayout/laptop.sh, mode "default"
-    bindsym h exec --no-startup-id ~/.i3/scripts/screenlayout/laptop_plus_monitor.sh, mode "default"
+    bindsym h exec --no-startup-id ~/.i3/scripts/screenlayout/home_2_monitors.sh, mode "default"
     bindsym r exec --no-startup-id ~/.i3/scripts/screenlayout/triple_monitor_double_portrait.sh, mode "default"
     # back to normal: Enter or Escape
     bindsym Return mode "default"
