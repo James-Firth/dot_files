@@ -97,6 +97,9 @@ alias clessn="less --LINE-NUMBERS --RAW-CONTROl-CHARS"
 alias clear3="clear; clear; clear;"
 alias rmnm="find -type d -name \"node_modules\" -exec rm -rf {} \;"
 
+# System Update alias
+alias bynars="sudo apt update && notify-send 'Permission required' && sudo apt upgrade && notify-send 'Permission required' && sudo apt auto-remove && echo 'UPGRADE COMPLETE!' && notify-send 'UPGRADE COMPLETE';"
+
 # Movement aliases
 alias projects="cd /home/james/projects"
 alias medic="cd /home/james/projects/work/medic"
@@ -151,6 +154,34 @@ docker_stop_and_remove() {
   echo "Stopped and removed all containers listed"
 }
 alias dsrm=docker_stop_and_remove
+
+# Naively handles git repos
+change_file_extensions_in_dir() {
+  oldExtension="$1"
+  newExtension="$2"
+  if [ "" = "$oldExtension" ]; then
+    echo "Missing parameters! Should be cfe OLD NEW";
+    return 1
+  fi
+  if [ "" = "$newExtension" ]; then
+    echo "Missing parameters! should be cfe OLD NW";
+    return 1
+  fi
+
+  if [ "true" = $(git rev-parse --is-inside-work-tree) ]; then
+    for f in *.$oldExtension; do
+      git mv -- "$f" "${f%.$oldExtension}.$newExtension";
+    done
+    echo "Extensions changed properly with git";
+  else
+    for f in *.$oldExtension; do
+      mv -- "$f" "${f%.$oldExtension}.$newExtension";
+    done
+    echo "Extensions changed.";
+  fi
+
+}
+alias cfe=change_file_extensions_in_dir
 
 # Path, ENV, etc. setup. Mostly 3rd party.
 export NVM_DIR="$HOME/.nvm"
