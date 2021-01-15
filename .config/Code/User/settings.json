@@ -14,13 +14,12 @@
         "**/node_modules": true, // Must explicitly look in node_modules
         "**/package-lock.json": true
     },
-    "search.smartCase": true, // more convenient search
-    /////////////////////
-    // VSCode Style and Info
-    /////////////////////
-    "workbench.colorTheme": "Dracula", // Nice, well supported dark theme
+    "search.smartCase": true, // Nice, well supported dark theme
     "workbench.colorCustomizations": {
-        "editor.selectionHighlightBackground": "#6272a4", // brighter highlight to increase match visibility
+        "editor.selectionHighlightBackground": "#6272a4",
+        // "statusBar.background": "#282a36",
+        // "statusBar.noFolderBackground": "#282a36",
+        // "statusBar.debuggingBackground": "#282a36"
     },
     "workbench.iconTheme": "vscode-great-icons", //useful for i3wm
     "breadcrumbs.enabled": true,
@@ -47,11 +46,6 @@
     ///////////////////////////
     "git.autofetch": true, //periodically run fetch, good for showing ahead/behind status
     "diffEditor.ignoreTrimWhitespace": false,
-    ///////////////////////////
-    // Formatting and linting
-    ///////////////////////////
-    // Likely changed per workspace
-    "editor.formatOnSave": false,
     "eslint.autoFixOnSave": true,
     "eslint.validate": [
         "javascript",
@@ -96,11 +90,56 @@
         "editor.defaultFormatter": "HookyQR.beautify"
     },
     "[javascript]": {
-        "editor.defaultFormatter": "HookyQR.beautify"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },
     "problems.showCurrentInStatus": true,
+    "[csharp]": {},
+    "todo-tree.tree.showScanModeButton": false,
+    "debug.onTaskErrors": "abort",
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "editor.tabSize": 2,
+    "javascript.preferences.importModuleSpecifier": "non-relative",
+    "editor.formatOnSave": true,
+    "prettier.printWidth": 120,
+    "prettier.singleQuote": true,
+    "todo-tree.general.tags": [
+        "XXX",
+        "TODO",
+        "HACK",
+        "FIXME",
+        "BUG",
+        "REVEL"
+    ],
+    "vim.useCtrlKeys": false,
+    "vim.easymotion": true,
+    "vim.easymotionMarkerForegroundColorOneChar": "#ff5555",
+    "vim.easymotionMarkerForegroundColorTwoCharFirst": "#ffb86c",
+    "vim.easymotionMarkerForegroundColorTwoCharSecond": "#cc8e4b",
+    "vim.leader": " ",
+    "keyboard.dispatch": "keyCode",
+    "vim.camelCaseMotion.enable": true,
+    "vim.highlightedyank.enable": true,
+    "vim.smartRelativeLine": true,
+    "vim.statusBarColors.normal": "#282a36",
+    "vim.statusBarColors.insert": "#6272a4",
+    "vim.statusBarColors.visual": "#44475a",
+    "vim.statusBarColors.commandlineinprogress": "#ff79c6",
+    "vim.statusBarColors.searchinprogressmode": "#bd93f9",
+    "vim.statusBarColors.easymotioninputmode": "#61A3B1",
+    "workbench.colorTheme": "Dracula",
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "go.useLanguageServer": true,
+    "liveshare.featureSet": "stable",
     // "prettier.eslintIntegration": false,
 }
