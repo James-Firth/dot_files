@@ -33,6 +33,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
+bindsym $mod+alt+q kill
 bindsym $mod+Shift+q kill
 
 #### Replaced with rofi ####
@@ -155,6 +156,9 @@ bindsym $mod+Shift+KP_6 move workspace to output right
 # For laptops/60% keyboards
 bindsym $mod+Shift+less move workspace to output left
 bindsym $mod+Shift+greater move workspace to output right
+bindsym $mod+period move workspace to output right
+bindsym $mod+comma move workspace to output left
+
 
 # rename current workspace
 #TODO fix this with negative numbers
@@ -337,13 +341,11 @@ mode "$power_menu" {
 bindsym $mod+shift+p mode "$power_menu"
 
 # Display Menu
-set $display_menu System (d) docked default, (w) docked wide (l) laptop layout (h) home (r) reading
+set $display_menu System (d)ocked default, docked (w)ide, (l)aptop layout
 mode "$display_menu" {
-    bindsym d exec --no-startup-id ~/.i3/scripts/screenlayout/triple_portrait.sh, mode "default"
-    bindsym w exec --no-startup-id ~/.i3/scripts/screenlayout/triple_landscape.sh, mode "default"
+    bindsym d exec --no-startup-id ~/.i3/scripts/screenlayout/basement_right_vert.sh, mode "default"
+    bindsym w exec --no-startup-id ~/.i3/scripts/screenlayout/double_monitor_quarantine.sh, mode "default"
     bindsym l exec --no-startup-id ~/.i3/scripts/screenlayout/laptop.sh, mode "default"
-    bindsym h exec --no-startup-id ~/.i3/scripts/screenlayout/home_2_monitors.sh, mode "default"
-    bindsym r exec --no-startup-id ~/.i3/scripts/screenlayout/triple_monitor_double_portrait.sh, mode "default"
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -363,6 +365,11 @@ bindsym $mod+Control+Alt+2 exec ~/.i3/scripts/screenlayout/triple_portrait.sh
 bindsym $mod+shift+x exec ~/.i3/scripts/screen_locker.sh
 
 # Pulse Audio controls
+# TODO: Can I just combine these sections of commands into one big audio control?
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 2 +5% && pactl set-sink-mute 2 false && killall -SIGUSR1 i3status #increase sound volume and unmute
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 2 -5% && pactl set-sink-mute 2 false && killall -SIGUSR1 i3status #decrease sound volume
+
+# For 3.5mm output
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% && pactl set-sink-mute 1 false && killall -SIGUSR1 i3status #increase sound volume and unmute
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% && pactl set-sink-mute 1 false && killall -SIGUSR1 i3status #decrease sound volume
 
