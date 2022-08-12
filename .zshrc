@@ -223,7 +223,7 @@ alias rmnm="find -type d -name \"node_modules\" -exec rm -rf {} \;"
 alias fzfp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 
 # Node
-alias whatscripts="cat package.json | jq .scripts"
+alias whatscripts="jq .scripts package.json"
 
 # Movement alias
 alias work="cd ~/projects/work"
