@@ -1,0 +1,97 @@
+{
+  "[graphql]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.bracketPairColorization.enabled": true,
+  "editor.cursorStyle": "line",
+  "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": true,
+  "editor.insertSpaces": false,
+  "editor.lineNumbers": "on",
+  "editor.renderWhitespace": "all",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
+  "explorer.fileNesting.enabled": true,
+  "files.insertFinalNewline": true,
+  "json.schemas": [
+    {
+      "fileMatch": ["app.json", "app.config.json"],
+      "name": "vscode-expo-manifest",
+      "url": "file:///Users/jamesfirth/Library/Application%20Support/Code/User/globalStorage/bycedric.vscode-expo/manifest-43.0.0.json"
+    }
+  ],
+  "prettier.singleQuote": true,
+  "redhat.telemetry.enabled": false,
+  "rest-client.logLevel": "verbose",
+  "rest-client.requestNameAsResponseTabTitle": true,
+  "terminal.integrated.profiles.osx": {
+    "bash": {
+      "args": ["-l"],
+      "icon": "terminal-bash",
+      "path": "bash"
+    },
+    "fish": {
+      "path": "fish"
+    },
+    "pwsh": {
+      "icon": "terminal-powershell",
+      "path": "pwsh"
+    },
+    "tmux": {
+      "icon": "terminal-tmux",
+      "path": "tmux"
+    },
+    "zsh": {
+      "args": ["-l"],
+      "path": "zsh"
+    }
+  },
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]"
+  ],
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+  "vim.camelCaseMotion.enable": true,
+  "vim.easymotion": true,
+  "vim.handleKeys": {
+    "<C-d>": true
+  },
+  "vim.leader": ";",
+  "vim.smartRelativeLine": true,
+  "workbench.colorTheme": "Dracula",
+  "editor.rulers": [80, 120],
+  "deno.path": "/usr/local/bin/deno",
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.stickyScroll.enabled": true
+}
+
