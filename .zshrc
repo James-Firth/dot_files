@@ -200,6 +200,8 @@ alias ssudo=safe_sudo
 # Misc tools/commands
 alias sshi="cat ~/.ssh/config"
 alias scanet="sudo nmap -sP 192.168.0.100-254"
+alias showfp="ssh-keygen -lf" # Get the fingerprint of an ssh key. Usage: showfp ~/.ssh/mykey.pub
+alias showart="ssh-keygen -lvf" # Get randomart of ssh key. Usage: showart ~/.ssh/mykey.pub
 
 # git
  # Git Checkout Remote
