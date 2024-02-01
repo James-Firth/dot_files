@@ -197,45 +197,45 @@ alias gpeek=git_peek
 alias gupeek=git_update_peek
 alias ssudo=safe_sudo
 
-# Misc tools/commands
-alias zedit="vim ~/.zshrc"
-alias zource="source ~/.zshrc"
-alias sshi="cat ~/.ssh/config"
-alias scanet="sudo nmap -sP 192.168.0.100-254"
+# ZSH editing
+alias zeditv="vim ~/.zshrc" # Edit zshrc with vim
+alias zedit="hx ~/.zshrc" # edit zshrc with helix (default for practice)
+alias zource="source ~/.zshrc" # reload zshrc config
+
+# Misc
+alias halias="ag --nonumber '(?s)(^## START ALIASES ##\$.*^## END ALIASES ##\$)' ~/.zshrc | sed '1d' | sed '\$d'" # help, list the aliases _I_ manually set not ohmyzsh
+
+# SSH 
+alias kssh="kitty +kitten ssh" # SSH using kiTTY
 alias showfp="ssh-keygen -lf" # Get the fingerprint of an ssh key. Usage: showfp ~/.ssh/mykey.pub
 alias showart="ssh-keygen -lvf" # Get randomart of ssh key. Usage: showart ~/.ssh/mykey.pub
+alias sshi="bat ~/.ssh/config" # dump sshi config to screen
 
 # git
- # Git Checkout Remote
-alias gcr='git checkout -t'
-  # Git update (via rebase)
-alias ggup="git pull --rebase origin $(git_current_branch)"
-  # Git Checkout origin
-alias gcoo="gpeek"
-  # Pull all repos under this folder
-alias gupall='find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git pull" \;'
+alias gcr='git checkout -t' # Git Checkout Remote
+alias ggup="git pull --rebase origin $(git_current_branch)" # Git update (via rebase)
+alias gcoo="gpeek" # Git Checkout origin
+alias gupall='find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git pull" \;' # Pull all repos under this folder
 
-# Flags - I'm lazy so this makes things easier
-alias cless="less -R"
-alias lessn="less --LINE-NUMBERS"
-alias clessn="less --LINE-NUMBERS --RAW-CONTROl-CHARS"
-alias kssh="kitty +kitten ssh"
+# less: Commonly used flags so I don't have to remember them
+alias cless="less -R" # Less with Colours
+alias lessn="less --LINE-NUMBERS" # Less with Line Numbers
+alias clessn="less --LINE-NUMBERS --RAW-CONTROl-CHARS" # less with Lines AND colours
 
 # Macros
-alias clear3="clear; clear; clear;"
-  # Remove node modules
-alias nmrm='rm -rf ./node_modules;'
+alias clear3="clear; clear; clear;" # clear 3 timex
+alias fzfp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'" # fuzzy find with preview
+alias nmrm='rm -rf ./node_modules;' # Remove node modules
 # Would be nice to have it be recursive
 #alias nmrm='find . -type d -name \"node_modules\" -exec rm -rf {} \;'
-  # fuzzy find with preview
-alias fzfp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 
 # Node
-alias jscripts="jq .scripts package.json"
+alias jscripts="jq .scripts package.json" # What are my scripts in this node project?
 
 # Movement alias
-alias work="cd ~/projects/work"
-alias docs="cd ~/projects/work/project_docs"
+alias work="cd ~/projects/work" # jump to work dir
+alias docs="cd ~/projects/work/project_docs" # jump to project docs dir
+alias dotfiles="cd ~/projects/personal/dot_files"
 
 # LINUX-SPECIFIC
 # System Update alias
@@ -257,6 +257,8 @@ export NVM_DIR="$HOME/.nvm"
 autoload -U promptinit; promptinit
 prompt spaceship
 source "$HOME/.zsh_rc_movement"
+
+#### EXPORT ENV VARS
 
 # SETUP ANDROID VARS
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home
