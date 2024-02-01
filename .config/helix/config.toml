@@ -2,6 +2,7 @@
 theme = "default"
 
 [editor]
+bufferline = "multiple"
 line-number = "relative" # shows relative unless unfocused window or in insert mode
 #insert = "bar"
 
