@@ -17,6 +17,7 @@ I created these setup files after following [this great video tutorial on i3](ht
 - `cava` - Visualizer
 - `bat` - a better version of cat https://github.com/sharkdp/bat
 - `fzf` - fuzzy searching on the CLI https://github.com/junegunn/fzf
+
 ### Links
 
 During the tutorial linked above I had to reference these sites. I collected them in one place, below, in case the video tutorials go down.
