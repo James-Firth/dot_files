@@ -1,33 +1,38 @@
 # dot_files
 
 ![xkcd comic about computer only being usable by the owner](https://imgs.xkcd.com/comics/borrow_your_laptop.png)
+Image Source: [XKCD #1806](https://xkcd.com/1806/) by Randall Munroe.
 
-I created these setup files after following [this great video tutorial on i3](https://www.youtube.com/watch?v=j1I63wGcvU4&list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf&index=1)
+These dotfiles have been mutating over the years as I've used Ubuntu as a primary driver at work (heavily customized with)
+i3wm and cool mechanical keyboards.
+I've also been using MacOS personally and professionally and SSHing into servers more so the tools tend to reflect that.
 
-### Some setup info
+`tmux` and `vim` are my bread and butter for remote connections, but `hx` (Helix Editor) is intriguing.
+I've been trying to use tmux and vim with as near standard as possible so I _can_ use it at work and home more easily.
 
-- Wallpaper file should be located at ~/Pictures/wallpaper.jpg
-- Run lxappearance to change themes/fonts
+That said I can see porting some changes to all systems.
 
-### Programs I always use and forget the names of
 
-#### Commandline
+Anyways this is a personal repo, but its out here for anyone to look at, so have fun, hope you learn something from this,
+and happy hacky!
+
+## Programs I always use and may forget the names of
+
+### Commandline
 
 - `vis` - Visualizer https://github.com/dpayne/cli-visualizer
 - `cava` - Visualizer
 - `bat` - a better version of cat https://github.com/sharkdp/bat
 - `fzf` - fuzzy searching on the CLI https://github.com/junegunn/fzf
 
-### Links
+### MacOS
 
-During the tutorial linked above I had to reference these sites. I collected them in one place, below, in case the video tutorials go down.
-I also kept copies/snapshots of the themes/fonts/icons in this repo as a back up in case any of them go down.
+- [Rectangle app](https://rectangleapp.com/) for keyboard-based window management
+- Skitch for screenshots with quick arrow annotations and blurring
+- OrbStack for way less power hungry docker management
+- [NetNewsWire](https://netnewswire.com/) for RSS reader
 
-- [Firefox Color Theme - Dracula Theme](https://color.firefox.com/?theme=XQAAAAISAQAAAAAAAABBqYhm849SCia2CaaEGccwS-xNKlhblI1dVO80iLEgqm2yqTSsdv-NZZ89G7FkcQPhvjTI5-W4vYsI8D_gSxXXzpkpS5wtx13PoFH510TuHKNMpC1_zaCQ9NECWAsTWFXsKc4acJkgl7Yv8s8hrZT_rWWmNEG2wY-fvaZkQDCSdHqou5DOaCEDYXrw7bXIn3UOowKi-u-VgIXVhhLc1txib82__lGOuk-fhPaZYOR759K-rQgJcgx8Paf69YCA)
-- [i3wm docs](https://i3wm.org/)
-- [Font Awesome](https://github.com/FortAwesome/Font-Awesome/releases)
-- [San Francisco font](https://github.com/supermarin/YosemiteSanFranciscoFont)
-- [Infinality Font rendering tutorial](http://www.webupd8.org/2013/06/better-font-rendering-in-linux-with.html)
-- [Arc Firefox Theme](https://github.com/horst3180/arc-firefox-theme)
-- [Arc GTK Theme](https://github.com/horst3180/Arc-theme)
-- [Fantastic i3lock setup](https://www.reddit.com/r/unixporn/comments/3358vu/i3lock_unixpornworthy_lock_screen) (reddit thread)
+## i3 and other Linux customization?
+
+Want to go back to i3 or get some linux customization info? (Finally switching to a linux desktop for gaming?)
+Then go to commit `456b132dacdaf5dad1695aea823a81b82fd6c5a4` which is right before I removed the i3 folder.
