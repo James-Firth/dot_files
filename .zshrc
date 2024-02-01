@@ -72,7 +72,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -198,6 +198,8 @@ alias gupeek=git_update_peek
 alias ssudo=safe_sudo
 
 # Misc tools/commands
+alias zedit="vim ~/.zshrc"
+alias zource="source ~/.zshrc"
 alias sshi="cat ~/.ssh/config"
 alias scanet="sudo nmap -sP 192.168.0.100-254"
 alias showfp="ssh-keygen -lf" # Get the fingerprint of an ssh key. Usage: showfp ~/.ssh/mykey.pub
@@ -210,6 +212,8 @@ alias gcr='git checkout -t'
 alias ggup="git pull --rebase origin $(git_current_branch)"
   # Git Checkout origin
 alias gcoo="gpeek"
+  # Pull all repos under this folder
+alias gupall='find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git pull" \;'
 
 # Flags - I'm lazy so this makes things easier
 alias cless="less -R"
@@ -220,12 +224,14 @@ alias kssh="kitty +kitten ssh"
 # Macros
 alias clear3="clear; clear; clear;"
   # Remove node modules
-alias rmnm="find -type d -name \"node_modules\" -exec rm -rf {} \;"
+alias nmrm='rm -rf ./node_modules;'
+# Would be nice to have it be recursive
+#alias nmrm='find . -type d -name \"node_modules\" -exec rm -rf {} \;'
   # fuzzy find with preview
 alias fzfp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 
 # Node
-alias whatscripts="jq .scripts package.json"
+alias jscripts="jq .scripts package.json"
 
 # Movement alias
 alias work="cd ~/projects/work"
@@ -263,7 +269,8 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # PYTHON
 PYTHON_BIN_PATH="$(python3 -m site --user-base)/bin"
-PATH="$PATH:$PYTHON_BIN_PATH"
+# Manually adding the path not sure why the above line wasn't working...
+PATH="$PATH:$PYTHON_BIN_PATH:/Users/jamesfirth/.local/bin"
 
 # User binaries
 export PATH="$PATH:$HOME/bin"
@@ -276,3 +283,8 @@ export PATH="/usr/local/sbin:$PATH"
 export PNPM_HOME="/Users/jamesfirth/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+# PYTHON - pyenv setup
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
