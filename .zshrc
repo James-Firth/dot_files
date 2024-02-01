@@ -223,6 +223,7 @@ alias gcr='git checkout -t' # Git Checkout Remote
 alias ggup="git pull --rebase origin $(git_current_branch)" # Git update (via rebase)
 alias gcoo="gpeek" # Git Checkout origin
 alias gupall='find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git pull" \;' # Pull all repos under this folder
+alias lgit="lazygit"
 
 # less: Commonly used flags so I don't have to remember them
 alias cless="less -R" # Less with Colours
