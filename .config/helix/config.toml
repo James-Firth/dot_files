@@ -1,0 +1,18 @@
+# See https://docs.helix-editor.com/configuration.html for options
+theme = "default"
+
+[editor]
+line-number = "relative" # shows relative unless unfocused window or in insert mode
+#insert = "bar"
+
+[editor.file-picker]
+hidden = false # "Ignore hidden" is a better key here.
+
+[editor.statusline]
+right = ["diagnostics", "selections", "register", "position", "file-encoding", "version-control"]
+
+# [editor.whitespace]
+# render = "all"
+
+[editor.indent-guides]
+render = true
