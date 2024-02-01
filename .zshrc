@@ -165,7 +165,13 @@ git_peek() {
   # I primarily use this function when doing PR reviews
   # I'll peek to grab the branch, but without worrying if the other user force-pushes
   git fetch;
-  git checkout "origin/$1";
+
+  if [ "$1" -eq "" ]; then
+    echo "You must provide a branch name";
+    return 1; # return as an error code. Avoid exiting shell
+  else
+    git checkout "origin/$1";
+  fi
 }
 
 
@@ -184,6 +190,7 @@ git_update_peek() {
     git checkout $branch_name;
   else
     echo "BRANCH NOT FOUND"; 
+    return 1; # return as an error code. Avoid exiting shell
   fi
 }
 ## END FUNCTIONS ##
