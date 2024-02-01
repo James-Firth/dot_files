@@ -16,6 +16,21 @@ That said I can see porting some changes to all systems.
 Anyways this is a personal repo, but its out here for anyone to look at, so have fun, hope you learn something from this,
 and happy hacky!
 
+## Programs assumed to be installed by dotfiles
+
+- vim
+- helix editor
+- docker
+- zsh (with ohmyzsh)
+- kitty (for kssh, might remove)
+- git
+- ssh
+- fzf
+- jq
+
+Stuff I like that isn't _required_
+- lazygit
+
 ## Programs I always use and may forget the names of
 
 ### Commandline
