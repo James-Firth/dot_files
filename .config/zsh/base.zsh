@@ -187,11 +187,16 @@ alias zource="source ~/.zshrc" # reload zshrc config
 # Misc
 alias halias="ag --nonumber '(?s)(^## START ALIASES ##\$.*^## END ALIASES ##\$)' ~/.zshrc ~/.config/zsh/ | sed '1d' | sed '\$d'" # help, list the aliases _I_ manually set not ohmyzsh
 alias treeag='tree -a -I ".git|node_modules"' # Gives a nice tree view of a folder ignoring obvious files
+alias showmotd='ssudo run-parts /etc/update-motd.d' # shows the motd that I wouldn't see when tmuxing immediately
 
 # SSH 
 alias showfp="ssh-keygen -lf" # Get the fingerprint of an ssh key. Usage: showfp ~/.ssh/mykey.pub
 alias showart="ssh-keygen -lvf" # Get randomart of ssh key. Usage: showart ~/.ssh/mykey.pub
 alias sshi="bat ~/.ssh/config" # dump sshi config to screen
+
+# Docker
+alias docc='docker compose'
+alais docuc='docker compose pull && docker compose up -d && docker system prune --force'
 
 # git
 alias gcr='git checkout -t' # Git Checkout Remote
