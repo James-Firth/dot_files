@@ -22,9 +22,15 @@ cd "$project_root"
 
 # Copy all the files. TODO: Make this easier/smarter?
 cp ~/.config/helix/config.toml ./.config/helix/config.toml
-cp ~/.zshrc ./.zshrc;
 cp ~/.vimrc ./.vimrc;
 cp ~/.tmux.conf ./.tmux.conf
+
+# Copy all the non-machine-specific zsh files
+# EXCEPT ~/.zshrc that will be customized!
+cp ~/.config/zsh/base.zsh ./.config/zsh/base.zsh
+cp ~/.config/zsh/development.zsh ./.config/zsh/development.zsh
+cp ~/.config/zsh/plugins.zsh ./.config/zsh/plugins.zsh
+cp ~/.config/zsh/work.zsh ./.config/zsh/work.zsh
 
 # Make sure we go back and inform user it's all done
 cd "$working_dir"

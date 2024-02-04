@@ -1,10 +1,27 @@
-# NOTE: Anything with a full path is marked with #* MACHINE-SPECIFIC comment
-# NOTE: Any line with a comment PER-MACHINE-OVERRIDE may need to be swithced
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+####################################################################################
+#    ___                           _           _                        __ _       
+#   |_  |                         ( )         | |                      / _(_)      
+#     | | __ _ _ __ ___   ___  ___|/   _______| |__     ___ ___  _ __ | |_ _  __ _ 
+#     | |/ _` | '_ ` _ \ / _ \/ __|   |_  / __| '_ \   / __/ _ \| '_ \|  _| |/ _` |
+# /\__/ / (_| | | | | | |  __/\__ \    / /\__ \ | | | | (_| (_) | | | | | | | (_| |
+# \____/ \__,_|_| |_| |_|\___||___/   /___|___/_| |_|  \___\___/|_| |_|_| |_|\__, |
+#                                                                             __/ |
+#                                                                            |___/ 
+####################################################################################
+# NOTES ✍️ 
+# - If you come from bash you might have to change your $PATH.
+# - I have deleted all of the zsh commented out options I do not think I will 
+#   ever use
 
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+# SET (AND MAYBE EXPORT) ENVIRONMENT VARIABLES
+# These may be overridden in the per-machine settings
+export ZSH=$HOME/.oh-my-zsh # Path to your oh-my-zsh installation.
+export EDITOR='vim' # default editor
+
+export PATH="/usr/local/sbin:/usr/local/bin:$HOME/bin:$PATH"
+
+# My custom env vars
+export JF_ZSH_CUSTOM=$HOME/.config/zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -12,36 +29,13 @@ export ZSH=$HOME/.oh-my-zsh
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -62,47 +56,13 @@ ZSH_THEME="robbyrussell"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+# Should make the `plugins` variable available to ohmyzsh
+source $JF_ZSH_CUSTOM/plugins.zsh
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose)
-
-# NO OHMYZSH ON SERVER??
+# actually run the oh-my-zsh script!
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 
 ## START FUNCTIONS ##
 docker_stop_and_remove() {
@@ -148,6 +108,8 @@ change_file_extensions_in_dir() {
   fi
 }
 
+# NOTE: Not sure if this is a macOS command or one I wrote but it was required
+# for the ggup alias so I C&P'd it here
 git_current_branch () {
 	local ref
 	ref=$(__git_prompt_git symbolic-ref --quiet HEAD 2> /dev/null) 
@@ -223,11 +185,10 @@ alias zedit="hx ~/.zshrc" # edit zshrc with helix (default for practice)
 alias zource="source ~/.zshrc" # reload zshrc config
 
 # Misc
-alias halias="ag --nonumber '(?s)(^## START ALIASES ##\$.*^## END ALIASES ##\$)' ~/.zshrc | sed '1d' | sed '\$d'" # help, list the aliases _I_ manually set not ohmyzsh
+alias halias="ag --nonumber '(?s)(^## START ALIASES ##\$.*^## END ALIASES ##\$)' ~/.zshrc ~/.config/zsh/ | sed '1d' | sed '\$d'" # help, list the aliases _I_ manually set not ohmyzsh
 alias treeag='tree -a -I ".git|node_modules"' # Gives a nice tree view of a folder ignoring obvious files
 
 # SSH 
-alias kssh="kitty +kitten ssh" # SSH using kiTTY
 alias showfp="ssh-keygen -lf" # Get the fingerprint of an ssh key. Usage: showfp ~/.ssh/mykey.pub
 alias showart="ssh-keygen -lvf" # Get randomart of ssh key. Usage: showart ~/.ssh/mykey.pub
 alias sshi="bat ~/.ssh/config" # dump sshi config to screen
@@ -254,62 +215,16 @@ alias nmrm='rm -rf ./node_modules;' # Remove node modules
 # Node
 alias jscripts="jq .scripts package.json" # What are my scripts in this node project?
 
-# Movement alias
-alias work="cd ~/projects/work" # jump to work dir
-alias docs="cd ~/projects/work/project_docs" # jump to project docs dir
-alias dotfiles="cd ~/projects/personal/dot_files"
-
 # LINUX-SPECIFIC
 # System Update alias
 # alias bynars="sudo apt update && notify-send 'Permission required' && sudo apt upgrade && notify-send 'Permission required' && sudo apt auto-remove && echo 'UPGRADE COMPLETE!' && notify-send 'UPGRADE COMPLETE';"
 ## END ALIASES ##
 
 
+# OTHER INTIALIZATION
+# Is this needed?
 autoload -Uz compinit
 compinit
-# Completion for kitty
-[ "$TERM" = "xterm-kitty" ] && kitty + complete setup zsh | source /dev/stdin
-EDITOR='vim'
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Set Spaceship ZSH as a prompt
-# autoload -U promptinit; promptinit
-# prompt spaceship
-# source "$HOME/.zsh_rc_movement" # HUH???
-
-#### EXPORT ENV VARS
-
-# SETUP ANDROID VARS
-# export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home
-# export PATH=${JAVA_HOME}:$PATH
-# export ANDROID_HOME=$HOME/Library/Android/sdk
-# export PATH=$PATH:$ANDROID_HOME/emulator
-# export PATH=$PATH:$ANDROID_HOME/tools
-# export PATH=$PATH:$ANDROID_HOME/tools/bin
-# export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-# PYTHON
-# PYTHON_BIN_PATH="$(python3 -m site --user-base)/bin"
-# Manually adding the path not sure why the above line wasn't working...
-# PATH="$PATH:$PYTHON_BIN_PATH:/Users/jamesfirth/.local/bin"
-
-# User binaries
-export PATH="$HOME/bin:$PATH"
-# /home/exxie/.rbenv/shims:/home/exxie/.cargo/bin:/home/exxie/bin:/usr/local/bin:/home/exxie/.local/bin:/home/exxie/.config/emacs/bin:/home/exxie/.rbenv/shims:/home/exxie/.cargo/bin:/home/exxie/bin
-#:/usr/local/bin:/home/exxie/.local/bin:/home/exxie/.config/emacs/bin:/home/exxie/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+# Set up FZF (assumed to be installed. Luckily this also checks)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH="/usr/local/sbin:$PATH"
-
-#* MACHINE SPECIFIC
-# pnpm
-# export PNPM_HOME="/Users/jamesfirth/Library/pnpm"
-# export PATH="$PNPM_HOME:$PATH"
-# pnpm end
-
-# PYTHON - pyenv setup
-# export PYENV_ROOT="$HOME/.pyenv"
-# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"

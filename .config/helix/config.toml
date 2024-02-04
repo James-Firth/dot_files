@@ -1,9 +1,11 @@
 # See https://docs.helix-editor.com/configuration.html for options
-theme = "default"
+theme = "pop-dark"
 
 [editor]
 bufferline = "multiple"
+true-color = true
 line-number = "relative" # shows relative unless unfocused window or in insert mode
+rulers = [80,120]
 #insert = "bar"
 
 [editor.file-picker]
