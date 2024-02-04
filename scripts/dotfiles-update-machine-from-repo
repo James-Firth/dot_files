@@ -1,0 +1,40 @@
+#!/bin/bash
+# This file copies all of the files from my machine into the dot files folder
+
+#Generic, useful variables
+working_dir=$(pwd -P)
+script_path="$BASH_SOURCE"
+
+# If we were called by a symbolic link we need to get back to the git repo
+if [ -h $script_path ]; then
+  # echo "$script_path IS A SYMBOLIC LINK"; # debug
+  script_path=$( readlink -f $script_path; )
+# else
+  # echo "NOT A LINK";
+fi
+parent_path=$( cd "$(dirname "${script_path}")" ; pwd -P )
+
+# go to the project root
+cd "$parent_path";
+project_root=$(git rev-parse --show-toplevel || echo ".")
+cd "$project_root"
+# Now we're in the root of the dot_files git repo.
+
+# Copy all the files. TODO: Make this easier/smarter?
+# TODO: For all the copying make a SOURCE_DIR and DEST_DIR variable
+# To make it easier to identify issues
+cp ./.config/helix/config.toml ~/.config/helix/config.toml
+cp ./.vimrc ~/.vimrc
+cp ./.tmux.conf  ~/.tmux.conf 
+
+# Copy all the non-machine-specific zsh files
+# cp ./template.zshrc ~/.zshrc # COMMENTED OUT DUE TO DANGER
+# I want to add a prompt but this is just my first draft
+cp ./.config/zsh/base.zsh  ~/.config/zsh/base.zsh
+cp ./.config/zsh/development.zsh ~/.config/zsh/development.zsh
+cp ./.config/zsh/plugins.zsh ~/.config/zsh/plugins.zsh
+cp ./.config/zsh/work.zsh ~/.config/zsh/work.zsh
+
+# Make sure we go back and inform user it's all done
+cd "$working_dir"
+echo -e "back to $(pwd)\n\n✅ DONE dot_files backup"
