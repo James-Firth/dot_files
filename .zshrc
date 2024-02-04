@@ -248,6 +248,14 @@ alias dotfiles="cd ~/projects/personal/dot_files"
 # LINUX-SPECIFIC
 # System Update alias
 # alias bynars="sudo apt update && notify-send 'Permission required' && sudo apt upgrade && notify-send 'Permission required' && sudo apt auto-remove && echo 'UPGRADE COMPLETE!' && notify-send 'UPGRADE COMPLETE';"
+
+# HOMELAB
+## Docker shortcuts since I use them A LOT
+docc='docker compose' # laziness
+docuc='docker compose pull && docker compose up -d && docker system prune --force' #
+
+# Server-related
+showmotd='ssudo run-parts /etc/update-motd.d' # show motd that I miss since I auto-tmux
 ## END ALIASES ##
 
 
