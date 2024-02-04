@@ -196,7 +196,7 @@ alias sshi="bat ~/.ssh/config" # dump sshi config to screen
 
 # Docker
 alias docc='docker compose'
-alais docuc='docker compose pull && docker compose up -d && docker system prune --force'
+alias docuc='docker compose pull && docker compose up -d && docker system prune --force'
 
 # git
 alias gcr='git checkout -t' # Git Checkout Remote
