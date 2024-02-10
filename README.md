@@ -28,6 +28,13 @@ and happy hacky!
 - fzf
 - jq
 
+### tmux
+
+Tmux config assumes that both
+- [TPM (tmux plugin manager)](https://github.com/tmux-plugins/tpm) and
+- [Dracula Theme](https://draculatheme.com/tmux)
+are both installed
+
 Stuff I like that isn't _required_
 - lazygit
 
