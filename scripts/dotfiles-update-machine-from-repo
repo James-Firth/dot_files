@@ -20,21 +20,52 @@ project_root=$(git rev-parse --show-toplevel || echo ".")
 cd "$project_root"
 # Now we're in the root of the dot_files git repo.
 
+# using . instead of source to force full path requirement
+. "$parent_path/catch_errors.sh"; # for nicer error handling
+
+
+# Setup variables
+dotfile_zshrc_backup_file="zsrhc_backup_$(date +%Y%m%d-%H%M%S).zshrc"
+dotfile_zsh_folder="$HOME/.config/zsh"
+
 # Copy all the files. TODO: Make this easier/smarter?
 # TODO: For all the copying make a SOURCE_DIR and DEST_DIR variable
 # To make it easier to identify issues
-cp ./.config/helix/config.toml ~/.config/helix/config.toml
-cp ./.vimrc ~/.vimrc
-cp ./.tmux.conf  ~/.tmux.conf 
+# TODO: check if the system file is nwer than repo file
+echo -ne "copying helix config from repo => system ";
+catch cp ./.config/helix/config.toml ~/.config/helix/config.toml;
 
+echo -ne "copying vimrc from repo => system ";
+catch cp ./.vimrc ~/.vimrc;
+
+echo -ne "copying tmux config from repo => system ";
+catch cp ./.tmux.conf  ~/.tmux.conf   
+echo "";
 # Copy all the non-machine-specific zsh files
-# cp ./template.zshrc ~/.zshrc # COMMENTED OUT DUE TO DANGER
+
+echo -ne "Backed up zshrc file to $dotfile_zshrc_backup_file "; # Backup the current zsh file!catch cp ~/.zshrc ~/$dotfile_zshrc_backup_file;
+catch cp ./template.zshrc ~/.zshrc # COMMENTED OUT DUE TO DANGER
 # I want to add a prompt but this is just my first draft
-cp ./.config/zsh/base.zsh  ~/.config/zsh/base.zsh
-cp ./.config/zsh/development.zsh ~/.config/zsh/development.zsh
-cp ./.config/zsh/plugins.zsh ~/.config/zsh/plugins.zsh
-cp ./.config/zsh/work.zsh ~/.config/zsh/work.zsh
+
+if [ ! -d "$d0tfile_zsh_folder" ]; then
+  echo "Creating $dotfile_zsh_folder"
+  mkdir -p "$dotfile_zsh_folder"
+fi
+
+echo "Copying ZSH configs into $dotfile_zsh_folder"
+# TODO: check if the system file is nwer than repo file
+cp ./.config/zsh/base.zsh  "$dotfile_zsh_folder/base.zsh"
+cp ./.config/zsh/development.zsh "$dotfile_zsh_folder/development.zsh"
+
+# ! ONLY copy this if we don't have one already. Can be per-machine!
+dotfile_zsh_plugin_file="$dotfile_zsh_folder/plugins.zsh"
+if [ -f "$dotfile_zsh_plugin_file" ]; then
+  echo "NOT copying plugins file in case system has customizations at $dotfile_zsh_plugin_file";
+else
+  cp ./.config/zsh/plugins.zsh "$dotfile_zsh_plugin_file" # This is also per machine
+fi
+cp ./.config/zsh/work.zsh "$dotfile_zsh_folder/work.zsh"
 
 # Make sure we go back and inform user it's all done
 cd "$working_dir"
-echo -e "back to $(pwd)\n\n✅ DONE dot_files backup"
+echo -e "CWD is back to $(pwd)\n\n✅ DONE dot_files backup"
