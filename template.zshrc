@@ -4,11 +4,13 @@
 
 # REQUIRED
 source $HOME/.config/zsh/base.zsh #import the base that we customize on top of
+# * NOTES
+# inside $HOME/.config/zsh/
+# * ONLY bash.zsh and plugins.zsh are ALWAYS imported
+# * Remember to update below if you want any of the other files imported!
 
-# EXAMPLES
-
+### EXAMPLES ###
 # User configuration
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

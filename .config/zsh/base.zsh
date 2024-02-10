@@ -108,19 +108,22 @@ change_file_extensions_in_dir() {
   fi
 }
 
-# NOTE: Not sure if this is a macOS command or one I wrote but it was required
-# for the ggup alias so I C&P'd it here
-git_current_branch () {
-	local ref
-	ref=$(__git_prompt_git symbolic-ref --quiet HEAD 2> /dev/null) 
-	local ret=$? 
-	if [[ $ret != 0 ]]
-	then
-		[[ $ret == 128 ]] && return
-		ref=$(__git_prompt_git rev-parse --short HEAD 2> /dev/null)  || return
-	fi
-	echo ${ref#refs/heads/}
-}
+# ONLY required if OHMYZSH is not installed (not always!)
+# We will check if the function is defined already then define if needed
+if ! type 'git_current_branch' 2>/dev/null | grep -q 'function' ; then
+  git_current_branch () {
+    local ref
+    ref=$(__git_prompt_git symbolic-ref --quiet HEAD 2> /dev/null) 
+    local ret=$? 
+    if [[ $ret != 0 ]]
+    then
+      [[ $ret == 128 ]] && return
+      ref=$(__git_prompt_git rev-parse --short HEAD 2> /dev/null)  || return
+    fi
+    echo ${ref#refs/heads/}
+  }
+fi
+
 
 safe_sudo() {
  # Runs a single command as sudo then revokes access
@@ -228,8 +231,7 @@ alias jscripts="jq .scripts package.json" # What are my scripts in this node pro
 
 # OTHER INTIALIZATION
 # Is this needed?
-autoload -Uz compinit
-compinit
+autoload -Uz compinit; compinit
 
 # Set up FZF (assumed to be installed. Luckily this also checks)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
