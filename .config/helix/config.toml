@@ -1,5 +1,5 @@
 # See https://docs.helix-editor.com/configuration.html for options
-theme = "pop-dark"
+theme = "dracula"
 
 [editor]
 bufferline = "multiple"
