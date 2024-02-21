@@ -144,7 +144,7 @@ git_peek() {
   # I'll peek to grab the branch, but without worrying if the other user force-pushes
   git fetch;
 
-  if [ "$1" -eq "" ]; then
+  if [ "$1" = "" ]; then
     echo "You must provide a branch name";
     return 1; # return as an error code. Avoid exiting shell
   else
