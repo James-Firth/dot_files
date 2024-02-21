@@ -195,7 +195,7 @@ alias showmotd='ssudo run-parts /etc/update-motd.d' # shows the motd that I woul
 # SSH 
 alias showfp="ssh-keygen -lf" # Get the fingerprint of an ssh key. Usage: showfp ~/.ssh/mykey.pub
 alias showart="ssh-keygen -lvf" # Get randomart of ssh key. Usage: showart ~/.ssh/mykey.pub
-alias sshi="bat ~/.ssh/config" # dump sshi config to screen
+alias sshi="cat ~/.ssh/config" # dump sshi config to screen
 
 # Docker
 alias docc='docker compose'
