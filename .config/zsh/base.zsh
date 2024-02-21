@@ -183,8 +183,8 @@ alias gupeek=git_update_peek
 alias ssudo=safe_sudo
 
 # ZSH editing
-alias zeditv="vim ~/.zshrc" # Edit zshrc with vim
-alias zedit="hx ~/.zshrc" # edit zshrc with helix (default for practice)
+alias zeditv="vim ~/.config/zshr" # Edit zshrc with vim
+alias zedit="hx ~/.config/zsh/" # edit zshrc with helix (default for practice)
 alias zource="source ~/.zshrc" # reload zshrc config
 
 # Misc
