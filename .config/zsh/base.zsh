@@ -27,7 +27,9 @@ export JF_ZSH_CUSTOM=$HOME/.config/zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# Using spaceship instead of robbyrussell means you have to have it installed!
+# https://github.com/spaceship-prompt/spaceship-prompt?tab=readme-ov-file#-installation
+ZSH_THEME="spaceship"
 
 
 # Uncomment the following line to use hyphen-insensitive completion.
