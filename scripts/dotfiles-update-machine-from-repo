@@ -25,7 +25,7 @@ cd "$project_root"
 
 
 # Setup variables
-dotfile_zshrc_backup_file="zsrhc_backup_$(date +%Y%m%d-%H%M%S).zshrc"
+dotfile_zshrc_backup_file="zshrc_backup_$(date +%Y%m%d-%H%M%S).zshrc"
 dotfile_zsh_folder="$HOME/.config/zsh"
 
 # Copy all the files. TODO: Make this easier/smarter?
