@@ -43,11 +43,12 @@ catch cp ./.tmux.conf  ~/.tmux.conf
 echo "";
 # Copy all the non-machine-specific zsh files
 
-echo -ne "Backed up zshrc file to $dotfile_zshrc_backup_file "; # Backup the current zsh file!catch cp ~/.zshrc ~/$dotfile_zshrc_backup_file;
+catch cp ~/.zshrc ~/$dotfile_zshrc_backup_file;
+echo -ne "Backed up zshrc file to $dotfile_zshrc_backup_file "; # Backup the current zsh file!
 catch cp ./template.zshrc ~/.zshrc # COMMENTED OUT DUE TO DANGER
 # I want to add a prompt but this is just my first draft
 
-if [ ! -d "$d0tfile_zsh_folder" ]; then
+if [ ! -d "$dotfile_zsh_folder" ]; then
   echo "Creating $dotfile_zsh_folder"
   mkdir -p "$dotfile_zsh_folder"
 fi
