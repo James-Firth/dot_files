@@ -57,6 +57,7 @@ echo "Copying ZSH configs into $dotfile_zsh_folder"
 # TODO: check if the system file is nwer than repo file
 cp ./.config/zsh/base.zsh  "$dotfile_zsh_folder/base.zsh"
 cp ./.config/zsh/development.zsh "$dotfile_zsh_folder/development.zsh"
+cp ./.config/zsh/remote.zsh "$dotfile_zsh_folder/remote.zsh"
 
 # ! ONLY copy this if we don't have one already. Can be per-machine!
 dotfile_zsh_plugin_file="$dotfile_zsh_folder/plugins.zsh"

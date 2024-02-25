@@ -29,6 +29,7 @@ cp ~/.tmux.conf ./.tmux.conf
 # EXCEPT ~/.zshrc that will be customized!
 cp ~/.config/zsh/base.zsh ./.config/zsh/base.zsh
 cp ~/.config/zsh/development.zsh ./.config/zsh/development.zsh
+cp ~/.config/zsh/remote.zsh ./.config/zsh/remote.zsh
 cp ~/.config/zsh/plugins.zsh ./.config/zsh/plugins.zsh
 cp ~/.config/zsh/work.zsh ./.config/zsh/work.zsh
 
