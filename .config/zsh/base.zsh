@@ -173,6 +173,13 @@ git_update_peek() {
     return 1; # return as an error code. Avoid exiting shell
   fi
 }
+
+search_and_open() {
+  # Search with ag, format each instance with this perl snippet
+  # Thanks to https://github.com/ggreer/the_silver_searcher/issues/1223#issuecomment-1122927562
+  # Then pass that into helix
+  hx $(ag "$1" | perl -lne 'if (/^(.+?):(\d+)/ && !$files{$1}) { print "$1:$2"; $files{$1} = "printed" }')
+}
 ## END FUNCTIONS ##
 
 ## START ALIASES ##
@@ -190,6 +197,7 @@ alias zedit="hx ~/.config/zsh/" # edit zshrc with helix (default for practice)
 alias zource="source ~/.zshrc" # reload zshrc config
 
 # Misc
+alias hag=search_and_open # Searches with ag and opens each instance in helix as a new buffer!
 alias halias="ag --nonumber '(?s)(^## START ALIASES ##\$.*^## END ALIASES ##\$)' ~/.zshrc ~/.config/zsh/ | sed '1d' | sed '\$d'" # help, list the aliases _I_ manually set not ohmyzsh
 alias treeag='tree -a -I ".git|node_modules"' # Gives a nice tree view of a folder ignoring obvious files
 alias showmotd='ssudo run-parts /etc/update-motd.d' # shows the motd that I wouldn't see when tmuxing immediately
