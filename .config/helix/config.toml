@@ -1,5 +1,5 @@
 # See https://docs.helix-editor.com/configuration.html for options
-theme = "dracula"
+theme = "dracula_jump"
 
 [editor]
 bufferline = "multiple"
@@ -12,10 +12,10 @@ rulers = [80,120]
 hidden = false # "Ignore hidden" is a better key here.
 
 [editor.statusline]
-right = ["diagnostics", "selections", "register", "position", "file-encoding", "version-control"]
+right = ["diagnostics", "selections", "position", "file-encoding", "version-control"]
 
-# [editor.whitespace]
-# render = "all"
+[editor.whitespace]
+render = "all"
 
 [editor.indent-guides]
 render = true
