@@ -5,3 +5,6 @@
 !.config/Code/User/snippet
 !.config/Code/User/keybindings
 !.config/Code/User/settings.json
+
+# Do not commit the overrides file this is per-machine
+.config/zshc/overrides.zsh

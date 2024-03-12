@@ -13,6 +13,9 @@
 # - I have deleted all of the zsh commented out options I do not think I will 
 #   ever use
 
+# These are variables that are exported and used elsewhere.
+# In a separate file so we can override them as necessary in the zshrc main
+
 # SET (AND MAYBE EXPORT) ENVIRONMENT VARIABLES
 # These may be overridden in the per-machine settings
 export ZSH=$HOME/.oh-my-zsh # Path to your oh-my-zsh installation.
@@ -30,7 +33,6 @@ export JF_ZSH_CUSTOM=$HOME/.config/zsh
 # Using spaceship instead of robbyrussell means you have to have it installed!
 # https://github.com/spaceship-prompt/spaceship-prompt?tab=readme-ov-file#-installation
 ZSH_THEME="spaceship"
-
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -59,6 +61,11 @@ ZSH_THEME="spaceship"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
 HIST_STAMPS="yyyy-mm-dd"
+
+if [ -f "$JF_ZSH_CUSTOM/overrides.zsh" ]; then
+  # If we've created an overrides file source it here
+  source $JF_ZSH_CUSTOM/overrides.zsh
+fi
 
 # Should make the `plugins` variable available to ohmyzsh
 source $JF_ZSH_CUSTOM/plugins.zsh
@@ -178,7 +185,18 @@ search_and_open() {
   # Search with ag, format each instance with this perl snippet
   # Thanks to https://github.com/ggreer/the_silver_searcher/issues/1223#issuecomment-1122927562
   # Then pass that into helix
-  hx $(ag "$1" | perl -lne 'if (/^(.+?):(\d+)/ && !$files{$1}) { print "$1:$2"; $files{$1} = "printed" }')
+
+  # Use this search result to get the search results
+  results=$(ag --column "$1"| perl -lne 'if (/^(.+?):(\d+):(\d+)/ && !$files{$1}) { print "$1:$2:$3"; $files{$1} = "printed" }')
+  # Do some workflow checks to avoid opening an empty terminal.
+  if [ "$results" = "" ]; then
+    echo "No results found for term '$1'";
+    return 1;
+  else
+    # Command substitution strips trailing new lines. Echoing again instead of passing seems to work.
+    # Have to learn more another day
+    $EDITOR $(echo $results)
+  fi
 }
 ## END FUNCTIONS ##
 
@@ -193,11 +211,12 @@ alias ssudo=safe_sudo
 
 # ZSH editing
 alias zeditv="vim ~/.config/zshr" # Edit zshrc with vim
-alias zedit="hx ~/.config/zsh/" # edit zshrc with helix (default for practice)
+alias zedit="$EDITOR ~/.config/zsh/" # edit zshrc with helix (default for practice)
 alias zource="source ~/.zshrc" # reload zshrc config
 
 # Misc
-alias hag=search_and_open # Searches with ag and opens each instance in helix as a new buffer!
+alias hag=search_and_open # Helix + Ag (hag): Searches with ag and opens each instance in helix as a new buffer!
+alias fae=search_and_open # Find And Edit (fae): Searches with ag and opens each instance in helix as a new buffer!
 alias halias="ag --nonumber '(?s)(^## START ALIASES ##\$.*^## END ALIASES ##\$)' ~/.zshrc ~/.config/zsh/ | sed '1d' | sed '\$d'" # help, list the aliases _I_ manually set not ohmyzsh
 alias treeag='tree -a -I ".git|node_modules"' # Gives a nice tree view of a folder ignoring obvious files
 alias showmotd='ssudo run-parts /etc/update-motd.d' # shows the motd that I wouldn't see when tmuxing immediately
