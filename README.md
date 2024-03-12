@@ -58,3 +58,7 @@ Stuff I like that isn't _required_
 
 Want to go back to i3 or get some linux customization info? (Finally switching to a linux desktop for gaming?)
 Then go to commit `456b132dacdaf5dad1695aea823a81b82fd6c5a4` which is right before I removed the i3 folder.
+
+## Setup Notes
+
+- Remember to [setup 256 colour support and italic support for tmux and terminal](https://weibeld.net/terminals-and-shells/italics.html) otherwise the helix Dracula theme looks _awful_
