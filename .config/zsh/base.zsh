@@ -136,7 +136,10 @@ fi
 
 safe_sudo() {
  # Runs a single command as sudo then revokes access
- cmd="${@: 1}"
+
+ # $@ contains all command line args and :1 is slicing starting at 1
+ # See: tldp.org/LDP/abs/html/internalvariables.html#APPREF for details
+ cmd="${@: 1}"; 
  if [ "" = "$cmd" ]; then
   echo "Missing parameters!";
   return 1
