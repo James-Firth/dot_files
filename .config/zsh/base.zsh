@@ -239,6 +239,8 @@ alias gcr='git checkout -t' # Git Checkout Remote
 alias ggup="git pull --rebase origin $(git_current_branch)" # Git update (via rebase)
 alias gcoo="gpeek" # Git Checkout origin
 alias gupall='find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git pull" \;' # Pull all repos under this folder
+alias gitsha='git rev-parse --verify HEAD' # Show current git sha
+alias gitssha='git rev-parse --short HEAD' # Show current git (short) sha
 alias lgit="lazygit"
 
 # less: Commonly used flags so I don't have to remember them
