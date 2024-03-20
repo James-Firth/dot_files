@@ -185,12 +185,13 @@ git_update_peek() {
 }
 
 search_and_open() {
+  # _Note_: All args are passed to AG
   # Search with ag, format each instance with this perl snippet
   # Thanks to https://github.com/ggreer/the_silver_searcher/issues/1223#issuecomment-1122927562
   # Then pass that into helix
 
   # Use this search result to get the search results
-  results=$(ag --column "$1"| perl -lne 'if (/^(.+?):(\d+):(\d+)/ && !$files{$1}) { print "$1:$2:$3"; $files{$1} = "printed" }')
+  results=$(ag --column "${@:1}"| perl -lne 'if (/^(.+?):(\d+):(\d+)/ && !$files{$1}) { print "$1:$2:$3"; $files{$1} = "printed" }')
   # Do some workflow checks to avoid opening an empty terminal.
   if [ "$results" = "" ]; then
     echo "No results found for term '$1'";
