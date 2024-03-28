@@ -90,7 +90,7 @@
 "ui.virtual.whitespace"           = { fg    = "current_line"                                                }
 "ui.virtual.wrap"                 = { fg    = "current_line"                                                }
 "ui.virtual.ruler"                = { bg    = "black"                                                       }
-"ui.virtual.jump-label" = { modifiers = ["reversed","underlined", "italic"]}
+"ui.virtual.jump-label"           = {                       modifiers = ["reversed","underlined", "italic"] }
 "ui.virtual.indent-guide"         = { fg    = "indent"                                                      }
 "ui.virtual.inlay-hint"           = { fg    = "cyan"                                                        }
 "ui.virtual.inlay-hint.parameter" = { fg    = "cyan",            modifiers = ["italic", "dim"]              }
