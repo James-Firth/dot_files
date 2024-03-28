@@ -7,6 +7,8 @@ source $HOME/.config/zsh/base.zsh #import the base that we customize on top of
 # * NOTES
 # inside $HOME/.config/zsh/
 # * ONLY bash.zsh and plugins.zsh are ALWAYS imported
+#       If $HOME/.config/zsh/overrides.sh is present it gets imported AFTER
+#       variable declarations in bash.zsh
 # * Remember to update below if you want any of the other files imported!
 
 ### EXAMPLES ###
@@ -26,3 +28,5 @@ source $HOME/.config/zsh/base.zsh #import the base that we customize on top of
 # Machine-specific changes will likey automatically be applied below
 # Or recommend to be applied
 ##### END OF TEMPLATE #####
+
+# Place your customization here

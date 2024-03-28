@@ -7,4 +7,10 @@
 !.config/Code/User/settings.json
 
 # Do not commit the overrides file this is per-machine
-.config/zshc/overrides.zsh
+.config/zsh/overrides.zsh
+# Do not commit the symlink I made to make editing all these files quicker
+.config/zsh/.zshrc
+
+# Ignore locally compiled helix runtime
+.config/helix/runtime
+.config/helix/runtime/*
