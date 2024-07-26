@@ -18,15 +18,16 @@ and happy hacky!
 
 ## Programs assumed to be installed by dotfiles
 
-- vim
-- helix editor
 - docker
-- zsh (with ohmyzsh)
-- kitty (for kssh, might remove)
+- fd (find replacement)
+- fzf (fuzzy finder useful in many places)
 - git
-- ssh
-- fzf
+- helix editor
 - jq
+- kitty (for kssh, might remove)
+- ssh
+- vim
+- zsh (with ohmyzsh)
 
 ### tmux
 

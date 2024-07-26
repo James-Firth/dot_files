@@ -202,6 +202,27 @@ search_and_open() {
     $EDITOR $(echo $results)
   fi
 }
+
+find_and_edit() {
+  # _Note_: All args are to fd
+  # Search with ag, format each instance with this perl snippet
+  # Thanks to https://github.com/ggreer/the_silver_searcher/issues/1223#issuecomment-1122927562
+  # Then pass that into helix
+
+  # Use this search result to get the search results
+  # fd respects .gitignore
+  # paste is concating each line of stdout using space (tab is default) instead of newline
+  results=$(fd --type file "${@}" | paste -sd ' ' -)
+  # Do some workflow checks to avoid opening an empty terminal.
+  if [ "$results" = "" ]; then
+    echo "No results found for term '$1'";
+    return 1;
+  else
+    # Command substitution strips trailing new lines. Echoing again instead of passing seems to work.
+    # Have to learn more another day
+    $EDITOR $(echo $results)
+  fi
+}
 ## END FUNCTIONS ##
 
 ## START ALIASES ##
@@ -220,7 +241,7 @@ alias zource="source ~/.zshrc" # reload zshrc config
 
 # Misc
 alias hag=search_and_open # Helix + Ag (hag): Searches with ag and opens each instance in helix as a new buffer!
-alias fae=search_and_open # Find And Edit (fae): Searches with ag and opens each instance in helix as a new buffer!
+alias fae=find_and_edit # Find And Edit (fae): Searches with fd and opens each instance in helix as a new buffer!
 alias halias="ag --nonumber '(?s)(^## START ALIASES ##\$.*^## END ALIASES ##\$)' ~/.zshrc ~/.config/zsh/ | sed '1d' | sed '\$d'" # help, list the aliases _I_ manually set not ohmyzsh
 alias treeag='tree -a -I ".git|node_modules"' # Gives a nice tree view of a folder ignoring obvious files
 alias showmotd='ssudo run-parts /etc/update-motd.d' # shows the motd that I wouldn't see when tmuxing immediately

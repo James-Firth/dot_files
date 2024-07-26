@@ -28,6 +28,7 @@ cd "$project_root"
 dotfile_zshrc_backup_file="zshrc_backup_$(date +%Y%m%d-%H%M%S).zshrc"
 dotfile_zsh_folder="$HOME/.config/zsh"
 
+# TODO Let's just make these all symlinks instead of copies. EXCEPT for the .zshrc/template.zshrc file
 # Copy all the files. TODO: Make this easier/smarter?
 # TODO: For all the copying make a SOURCE_DIR and DEST_DIR variable
 # To make it easier to identify issues

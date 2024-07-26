@@ -1,0 +1,12 @@
+git:
+  autoFetch: false
+  parseEmoji: true
+customCommands:
+  - key: '<c-F>'
+    command: 'git push --force-with-lease'
+    context: 'global'
+    description: 'Force Push with lease'
+    prompts:
+      - type: 'confirm'
+        title: 'Force Push with Lease?'
+        body: 'Are you sure you want to push to the remote?'

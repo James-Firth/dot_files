@@ -6,6 +6,8 @@ bufferline = "multiple"
 true-color = true
 line-number = "relative" # shows relative unless unfocused window or in insert mode
 rulers = [80,120]
+auto-format = true
+insert-final-newline = true # default is true
 #insert = "bar"
 
 [editor.file-picker]
