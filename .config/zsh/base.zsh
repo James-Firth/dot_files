@@ -223,6 +223,16 @@ find_and_edit() {
     $EDITOR $(echo $results)
   fi
 }
+
+function yy() {
+  # From yazi docs. It changes PWD when exiting yazi
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 ## END FUNCTIONS ##
 
 ## START ALIASES ##
@@ -233,6 +243,7 @@ alias cfe=change_file_extensions_in_dir
 alias gpeek=git_peek
 alias gupeek=git_update_peek
 alias ssudo=safe_sudo
+alias yy=yy
 
 # ZSH editing
 alias zeditv="vim ~/.config/zshr" # Edit zshrc with vim
