@@ -32,9 +32,13 @@ alias personal="cd ~/projects/personal/"
 
 # Utilities
 alias feslint="pnpm eslint . --ext .js,.jsx --format compact | grep \"Error\" | sed -e 's/ line //' -e 's/, col /:/' -e 's/, Error.*$//'"
+
 ## Notes
 alias note=make_new_note
 alias daily=make_daily_note
+
+# tmux stuff
+alias pgit="tmux popup -d '#{pane_current_path}' -E -w 90% -h 90% lazygit"
 
 # Use Ctrl-t to pipe fd results into fzf
 export FZF_DEFAULT_COMMAND='fd --type file --color=always --follow --hidden --exclude .git --exclude node_modules'

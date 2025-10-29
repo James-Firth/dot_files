@@ -1,0 +1,5 @@
+# https://github.com/helix-editor/helix/wiki/Recipes#continue-markdown-lists--quotes
+# If you want list items to continue when you press Enter or o and such, you can add this to your config:
+[[language]]
+name = "markdown"
+comment-tokens = ["-", "+", "*", "- [ ]", ">"]

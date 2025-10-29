@@ -62,6 +62,22 @@ ZSH_THEME="spaceship"
 # see 'man strftime' for details.
 HIST_STAMPS="yyyy-mm-dd"
 
+
+### History Tweaks
+# from: https://hassek.github.io/zsh-history-tweaking/
+#  and  https://medium.com/@artemkhrenov/modern-terminal-emulators-ghostty-vs-iterm2-3cd5e55a8d24
+# I'm only taking some of these as I think that history can be useful for debugging
+
+# This gives you better history searching
+export HISTSIZE=1000000
+export SAVEHIST=1000000
+# setopt HIST_IGNORE_ALL_DUPS # delete old duplicates then add new entry
+setopt HIST_FIND_NO_DUPS # don't show line previously found
+setopt HIST_REDUCE_BLANKS # remove superfluous blanks before storing
+setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
+setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
+# setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
+
 if [ -f "$JF_ZSH_CUSTOM/overrides.zsh" ]; then
   # If we've created an overrides file source it here
   source $JF_ZSH_CUSTOM/overrides.zsh
@@ -176,7 +192,9 @@ git_update_peek() {
 
   # This is to confirm we grabbed a real branch name and my sed/cut didn't mess up
   if git branch --all | grep -q "$branch_name"; then
+    echo "[gupeek] Fetch...";
     git fetch;
+    echo "[gupeek] checkout $branch_name...";
     git checkout $branch_name;
   else
     echo "BRANCH NOT FOUND"; 
@@ -191,12 +209,13 @@ search_and_open() {
   # Then pass that into helix
 
   # Use this search result to get the search results
-  results=$(ag --column "${@:1}"| perl -lne 'if (/^(.+?):(\d+):(\d+)/ && !$files{$1}) { print "$1:$2:$3"; $files{$1} = "printed" }')
+  results=$(ag --ignore "*.map" --column "${@:1}"| perl -lne 'if (/^(.+?):(\d+):(\d+)/ && !$files{$1}) { print "$1:$2:$3"; $files{$1} = "printed" }')
   # Do some workflow checks to avoid opening an empty terminal.
   if [ "$results" = "" ]; then
     echo "No results found for term '$1'";
     return 1;
   else
+    print "$results"
     # Command substitution strips trailing new lines. Echoing again instead of passing seems to work.
     # Have to learn more another day
     $EDITOR $(echo $results)
@@ -246,8 +265,8 @@ alias ssudo=safe_sudo
 alias yy=yy
 
 # ZSH editing
-alias zeditv="vim ~/.config/zshr" # Edit zshrc with vim
-alias zedit="$EDITOR ~/.config/zsh/" # edit zshrc with helix (default for practice)
+alias zeditv="vim ~/.config/zsh ~/.zshrc" # Edit zshrc with vim
+alias zedit="$EDITOR ~/.config/zsh/ ~/.zshrc" # edit zshrc with helix (default for practice)
 alias zource="source ~/.zshrc" # reload zshrc config
 
 # Misc

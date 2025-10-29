@@ -21,3 +21,27 @@ render = "all"
 
 [editor.indent-guides]
 render = true
+
+[keys.normal]
+# Use yazi as a treepicker in helix
+# new window
+C-y = ":sh tmux new-window -n fx '~/.config/helix/yazi-picker.sh open'"
+# Attempting to use a popup but it's so slow!
+# C-y = ":sh tmux display-popup '~/.config/helix/yazi-picker.sh open'"
+# ~/.config/helix/config.toml
+
+
+# [keys.normal.C-y]
+# # Open file(s) in the current window
+# y = ":sh tmux new-window -n fx '~/.config/helix/yazi-picker.sh open'"
+# # Open file(s) in a vertical split
+# v = ":sh tmux new-window -n fx '~/.config/helix/yazi-picker.sh vsplit'"
+# # Open file(s) in a horizontal split
+# h = ":sh tmux new-window -n fx '~/.config/helix/yazi-picker.sh hsplit'"
+
+# From https://jvns.ca/blog/2025/10/10/notes-on-switching-to-helix-from-vim/
+[keys.normal.space]
+# her note
+# I write a lot of text so I need to constantly reflow,
+# and missed vim's `gq` shortcut
+l = ":reflow 120" # from 
