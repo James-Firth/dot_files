@@ -243,6 +243,20 @@ find_and_edit() {
   fi
 }
 
+fuzzy_find_and_edit() {
+  results=$(fzf --preview 'bat --style=numbers --color=always --line-range :500 {}')
+
+  if [ "$results" = "" ]; then
+    echo "No results found for term '$1'";
+    return 1;
+  else
+    # Command substitution strips trailing new lines. Echoing again instead of passing seems to work.
+    # Have to learn more another day
+    $EDITOR $(echo $results)
+  fi
+  
+}
+
 function yy() {
   # From yazi docs. It changes PWD when exiting yazi
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
@@ -267,14 +281,18 @@ alias yy=yy
 # ZSH editing
 alias zeditv="vim ~/.config/zsh ~/.zshrc" # Edit zshrc with vim
 alias zedit="$EDITOR ~/.config/zsh/ ~/.zshrc" # edit zshrc with helix (default for practice)
+alias hedit="$EDITOR ~/.config/helix" # Edit helix settings
+alias tedit="$EDITOR ~/.tmux.conf" # edit the tmux config with default editor
 alias zource="source ~/.zshrc" # reload zshrc config
 
 # Misc
 alias hag=search_and_open # Helix + Ag (hag): Searches with ag and opens each instance in helix as a new buffer!
 alias fae=find_and_edit # Find And Edit (fae): Searches with fd and opens each instance in helix as a new buffer!
+alias ffae=fuzzy_find_and_edit # Search with fzf using bat to preview then open in helix
 alias halias="ag --nonumber '(?s)(^## START ALIASES ##\$.*^## END ALIASES ##\$)' ~/.zshrc ~/.config/zsh/ | sed '1d' | sed '\$d'" # help, list the aliases _I_ manually set not ohmyzsh
 alias treeag='tree -a -I ".git|node_modules"' # Gives a nice tree view of a folder ignoring obvious files
 alias showmotd='ssudo run-parts /etc/update-motd.d' # shows the motd that I wouldn't see when tmuxing immediately
+alias falias='zsh -ixc : 2>&1 | ag' #find aliases. From: https://unix.stackexchange.com/questions/322459/is-it-possible-to-check-where-an-alias-was-defined
 
 # SSH 
 alias showfp="ssh-keygen -lf" # Get the fingerprint of an ssh key. Usage: showfp ~/.ssh/mykey.pub
