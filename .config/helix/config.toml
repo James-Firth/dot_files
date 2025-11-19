@@ -26,6 +26,7 @@ render = true
 # Use yazi as a treepicker in helix
 # new window
 C-y = ":sh tmux new-window -n fx '~/.config/helix/yazi-picker.sh open'"
+Y = ":clipboard-yank-join"
 # Attempting to use a popup but it's so slow!
 # C-y = ":sh tmux display-popup '~/.config/helix/yazi-picker.sh open'"
 # ~/.config/helix/config.toml
