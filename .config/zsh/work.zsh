@@ -14,14 +14,14 @@ make_daily_note() {
   #v1! v2 should read the format from my .obsidian/daily-notes.json file
   notes_path="/Users/jamesfirth/projects/work/notes"
   daily_folder=$(jq .folder "$notes_path/.obsidian/daily-notes.json" --raw-output)
-  template_file=$(jq .template "$notes_path/.obsidian/daily-notes.json" --raw-output).".md"
+  template_file=$(jq .template "$notes_path/.obsidian/daily-notes.json" --raw-output)."md"
   today_name=$(date +'%Y-%m-%d %A')
 
   if [[ ! -e "$notes_path/$daily_folder/$today_name.md" ]]; then
-    echo "Creating Daily Note at: $daily_folder/$today_name.md"
-    cp "$template_file" "$daily_folder/$today_name.md"
+    echo "Creating Daily Note at: $notes_path/$daily_folder/$today_name.md"
+    cp "$notes_path/$template_file" "$notes_path/$daily_folder/$today_name.md"
   fi
-   hx "$daily_folder/$today_name.md"
+   hx "$notes_path/$daily_folder/$today_name.md"
 }
 
 # Movement alias
