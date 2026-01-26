@@ -18,8 +18,20 @@
 
 # SET (AND MAYBE EXPORT) ENVIRONMENT VARIABLES
 # These may be overridden in the per-machine settings
-export ZSH=$HOME/.oh-my-zsh # Path to your oh-my-zsh installation.
-export EDITOR='vim' # default editor
+# export ZSH=$HOME/.oh-my-zsh # Path to your oh-my-zsh installation.
+
+
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.zsh_history
+setopt autocd
+bindkey -e # NOT SURE WHICH I WANT
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/james/.zshrc'
+
+# End of lines added by compinstall
+
+export EDITOR='hx' # default editor
 
 export PATH="/usr/local/sbin:/usr/local/bin:$HOME/bin:$PATH"
 
@@ -87,7 +99,7 @@ fi
 source $JF_ZSH_CUSTOM/plugins.zsh
 
 # actually run the oh-my-zsh script!
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 ## START FUNCTIONS ##
 docker_stop_and_remove() {
@@ -324,6 +336,15 @@ alias nmrm='rm -rf ./node_modules;' # Remove node modules
 # Would be nice to have it be recursive
 #alias nmrm='find . -type d -name \"node_modules\" -exec rm -rf {} \;'
 
+# tmux stuff
+alias pgit="tmux popup -d '#{pane_current_path}' -E -w 90% -h 90% lazygit"
+
+# Use Ctrl-t to pipe fd results into fzf
+export FZF_DEFAULT_COMMAND='fd --type file --color=always --follow --hidden --exclude .git --exclude node_modules'
+export FZF_DEFAULT_OPTS="--ansi"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+
 # Node
 alias jscripts="jq .scripts package.json" # What are my scripts in this node project?
 
@@ -338,4 +359,5 @@ alias jscripts="jq .scripts package.json" # What are my scripts in this node pro
 autoload -Uz compinit; compinit
 
 # Set up FZF (assumed to be installed. Luckily this also checks)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
