@@ -19,8 +19,8 @@ and happy hacky!
 ## Programs assumed to be installed by dotfiles
 
 - docker
-- fd (find replacement)
-- fzf (fuzzy finder useful in many places)
+- [fd](https://github.com/sharkdp/fd) (find replacement)
+- [fzf](https://github.com/junegunn/fzf) (fuzzy finder useful in many places)
 - git
 - helix editor
 - jq
@@ -34,10 +34,13 @@ and happy hacky!
 Tmux config assumes that both
 - [TPM (tmux plugin manager)](https://github.com/tmux-plugins/tpm) and
 - [Dracula Theme](https://draculatheme.com/tmux)
-are both installed
+are both installed.
 
-Stuff I like that isn't _required_
-- lazygit
+Along with oh-my-zsh. Easy enough to comment out.
+
+## Stuff I like that isn't _required_
+- [lazygit](https://github.com/jesseduffield/lazygit)
+- [zoxide](https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#installation)
 
 ## Programs I always use and may forget the names of
 
