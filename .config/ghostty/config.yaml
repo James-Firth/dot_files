@@ -1,0 +1,10 @@
+# ~/.config/ghostty/config.yaml
+gpu-accelerated: true
+vsync: true # Prevent screen tears
+max-frame-rate: 120
+background-opacity: 1.0
+# font-feature-settings: "calt" 0
+
+# Performance monitoring
+debug-gpu-stats: true
+performance-overlay: true
