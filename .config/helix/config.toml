@@ -45,4 +45,4 @@ Y = ":clipboard-yank-join"
 # her note
 # I write a lot of text so I need to constantly reflow,
 # and missed vim's `gq` shortcut
-l = ":reflow 120" # from 
+l = ":reflow 120" # from
